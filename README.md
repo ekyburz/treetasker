@@ -35,6 +35,6 @@ else (“Delete” → grey → Not Import & Not Urgent) {
 
 
 Extension goals:
-/n Categories for Delete
+Categories for Delete
 Premium features
 Track time
