@@ -1,24 +1,27 @@
 # TreeTasker
-<p><strong>Overall “idea (philosophy)”:</strong><br/>
-Getting Things Done: https://gettingthingsdone.com/</p>
 
-Popular and complete App:
+### A ToDo-List to organize your tasks with a clutterfree experience!
+
+**Overall “idea (philosophy)”:**
+Getting Things Done: https://gettingthingsdone.com/
+
+**Popular and complete App:**
 OmniFocus: https://www.omnigroup.com/omnifocus/web/
 
-Eisenhower Matrix:
+**Eisenhower Matrix:**
 https://asana.com/resources/eisenhower-matrix
 → How to prioritise your todo; ie “categories” for your app
 https://luxafor.com/the-eisenhower-matrix/
 → lots of definition and “use case” examples
 
-Share functionality:
+**Share functionality:**
 Todo Details with delegate
 
-UX (Windows/Screens) Elements:
-Welcome & Sign-in (incl. “Menu ie Navbar”) → User Settings page
-User Window → App Overview (“Matrix”)
-User Window → Create Task (Modal)
-Do → Start or Schedule
+**UX (Windows/Screens) Elements:**
+1. Welcome & Sign-in (incl. “Menu ie Navbar”) → User Settings page
+2. User Window → App Overview (“Matrix”)
+3. User Window → Create Task (Modal)
+4. Do → Start or Schedule
 
 If “Do” (green → Urgent & Important) {
 	Todo goes to your list of the day (schedule) → DO IT NOW! → Close screen and start timer
@@ -34,7 +37,7 @@ else (“Delete” → grey → Not Import & Not Urgent) {
 }
 
 
-Extension goals:
-Categories for Delete
-Premium features
-Track time
+**Extension goals:**
+- Categories for Delete
+- Premium features
+- Track time
