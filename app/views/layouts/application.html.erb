@@ -8,6 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+<script>
+    if (window.location.protocol === "https:") {
+        window.location.protocol = "http";
+    }
+</script>
+
   </head>
 
   <body><%= render "shared/navbar" %>
