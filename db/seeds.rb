@@ -5,14 +5,32 @@
 # Example:
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
+#     MovieGenre.create!(name: genre_name)
 #   end
 
 # Create a user with a garden and a tree
-user1 = User.create!(first_name: 'John', last_name: 'Doe', email: 'user1@example.com', password: 'password')
-user2 = User.create!(first_name: 'Jane', last_name: 'Doe', email: 'user2@example.com', password: 'password')
-task1 = Task.create!(name: 'Task 1', priority: 1, user: user1, assignee_id: 1)
-task2 = Task.create!(name: 'Task 2', priority: 2, user: user1, assignee_id: 1)
-task3 = Task.create!(name: 'Task 3', priority: 3, user: user1, assignee_id: 2)
-task4 = Task.create!(name: 'Task 4', priority: 4, user: user1, assignee_id: 1)
-tree1 = Tree.create!(name: 'Tree 1', task: task1)
+user1 = User.create!(email: 'user1@example.com') do |user|
+  user.password = 'password'
+  user.first_name = 'User'
+  user.last_name = 'One'
+end
+user2 = User.create!(email: 'user2@example.com') do |user|
+  user.password = 'password'
+  user.first_name = 'User'
+  user.last_name = 'Two'
+end
+garden1 = Garden.create!(user: user1)
+garden2 = Garden.create!(user: user2)
+
+# Create a task with a tree
+task1 = Task.create!(name: 'Water the tree', creator: user1, assignee: user1, priority: 1)
+task2 = Task.create!(name: 'Prune the tree', creator: user1, assignee: user1, priority: 2)
+task3 = Task.create!(name: 'Water the tree', creator: user1, assignee: user2, priority: 3)
+task4 = Task.create!(name: 'Prune the tree', creator: user1, assignee: user1, priority: 4)
+
+# Create a tree with a task
+tree1 = Tree.create!(name: 'Oak', task: task1, garden: garden1)
+tree2 = Tree.create!(name: 'Maple', task: task2, garden: garden1)
+tree3 = Tree.create!(name: 'Pine', task: task3, garden: garden1)
+tree4 = Tree.create!(name: 'Birch', task: task4, garden: garden1)
+tree5 = Tree.create!(name: 'Willow', task: task3, garden: garden2)
