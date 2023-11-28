@@ -15,4 +15,10 @@ class TreesController < ApplicationController
       render :new
     end
   end
+
+  private
+
+  def tree_params
+    params.require(:tree).permit(:name, :taks_id, :garden_id)
+  end
 end
