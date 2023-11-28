@@ -10,9 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_113134) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_084045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gardens", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tree_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tree_id"], name: "index_gardens_on_tree_id"
+    t.index ["user_id"], name: "index_gardens_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.integer "priority"
+    t.bigint "user_id", null: false
+    t.integer "assignee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "trees", force: :cascade do |t|
+    t.string "name"
+    t.bigint "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_trees_on_task_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +49,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_113134) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "gardens", "trees"
+  add_foreign_key "gardens", "users"
+  add_foreign_key "tasks", "users"
+  add_foreign_key "trees", "tasks"
 end
