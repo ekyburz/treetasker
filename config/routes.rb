@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'garden/index'
+  get 'trees/show'
+  get 'trees/new'
+  get 'trees/create'
   resources :tasks
   devise_for :users
   root to: "pages#home"
