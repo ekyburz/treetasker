@@ -13,6 +13,7 @@ class TreesController < ApplicationController
       redirect_to @tree
     else
       render :new
+      # hello
     end
   end
 
