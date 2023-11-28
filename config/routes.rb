@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'garden/index'
-  get 'trees/show'
-  get 'trees/new'
-  get 'trees/create'
   resources :tasks
+  resources :gardens, only: [:index]
+  resources :trees, only: [:show, :new, :create]
+
   devise_for :users
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
