@@ -1,3 +1,5 @@
-<h1>hello world</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p>Nicolas is doing the homepage.</p>
+<% if !user_signed_in? %>
+  <%= render "home_visitor" %>
+<% else %>
+  <%= render "home_user" %>
+<% end %>
