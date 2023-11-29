@@ -1,0 +1,19 @@
+<p><strong>First Name:</strong>
+<%= @user.first_name %>
+</p>
+
+<p><strong>Last Name:</strong>
+<%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Reminders:</strong>
+  <%# @user.reminders ? 'Enabled' : 'Disabled' %>
+</p>
+
+<p>
+  <strong>Archive:</strong>
+  <%# @user.archive ? 'Enabled' : 'Disabled' %>
+</p>
+
+<%= link_to 'Edit', root_path(), class:"btn btn-primary"%>
