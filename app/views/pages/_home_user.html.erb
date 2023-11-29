@@ -1,0 +1,54 @@
+<div class="home-nav">
+  <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <%= link_to "+ Create Taks", root_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto link-body-emphasis text-decoration-none" %>
+
+    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+      <li>
+        <%= link_to root_path(), class: "link-body-emphasis text-decoration-none" do %>
+          <i class="fa-regular fa-circle-play fa-2xl"></i>
+          <p>DO</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_path(), class: "link-body-emphasis text-decoration-none" do %>
+          <i class="fa-regular fa-calendar-plus fa-2xl"></i>
+          <p>DECIDE</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_path(), class: "link-body-emphasis text-decoration-none" do %>
+          <i class="fa-solid fa-user-plus fa-2xl"></i>
+          <p>DELEGATE</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_path(), class: "link-body-emphasis text-decoration-none" do %>
+          <i class="fa-solid fa-box-archive fa-2xl"></i>
+          <p>DEPOSITORY</p>
+        <% end %>
+      </li>
+      <li>
+        <a href="#" class="link-body-emphasis text-decoration-none">
+          <%= image_tag "treetasker-logo", alt: "TreeTasker - Productivity Growth", size: "50x50", class: "bi d-block mx-auto mb-1" %>
+          Profile
+          </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div>
+  <h4><strong>D</strong>o</h4>
+  <p>Task to do NOW!</p>
+  <h4><strong>D</strong>ecide</h4>
+  <p>Upcoming Task</p>
+  <h4><strong>D</strong>elegate</h4>
+  <p>Task to delegate</p>
+  <h4><strong>D</strong>epository</h4>
+  <p>Your oldest Task</p>
+</div>
+
+<div>
+  <h4>Statistics</h4>
+  <button type="button" class="btn btn-success"><%= link_to "Garden", root_path(), class: "link-body-emphasis text-decoration-none" %></button>
+</div>
