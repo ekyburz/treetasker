@@ -1,0 +1,18 @@
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-9 d-flex align-items-center">
+        <a href="/" class="link-body-emphasis text-decoration-none">
+          <%= image_tag "treetasker-logo", alt: "TreeTasker - Productivity Growth", size: "100x100" %>
+        </a>
+        <h1>TreeTasker</h1>
+      </div>
+
+      <div class="col-3 text-end">
+        <% if !user_signed_in? %>
+          <button type="button" class="btn btn-outline-success me-2"><%= link_to "Login", new_user_session_path(), class: "link-body-emphasis text-decoration-none" %></button>
+        <% else %>
+          <button type="button" class="btn btn-outline-success me-2"><%= link_to "Logout", destroy_user_session_path(), data: { turbo_method: :delete }, class: "link-body-emphasis text-decoration-none" %></button>
+        <% end %>
+      </div>
+    </header>
+  </div>
