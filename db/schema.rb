@@ -21,6 +21,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_113710) do
     t.index ["user_id"], name: "index_gardens_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "reminders"
+    t.boolean "archive"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "delegates"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.integer "priority"
@@ -59,6 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_113710) do
   end
 
   add_foreign_key "gardens", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "tasks", "users", column: "assignee_id"
   add_foreign_key "tasks", "users", column: "creator_id"
   add_foreign_key "trees", "gardens"
