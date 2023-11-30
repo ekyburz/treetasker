@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_one :garden, dependent: :destroy
   has_many :trees, through: :garden
 
-  has_one :profile
+  has_one_attached :photo
 end
