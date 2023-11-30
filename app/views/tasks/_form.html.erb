@@ -5,12 +5,13 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :priority %>
-    <%= f.input :creator_id %>
-    <%= f.input :assignee_id %>
+    <%= f.input :priority, collection: 1..4, prompt: "Select your priority" %>
+    <%= f.hidden_field :creator_id %>
+    <p><strong>Creator:</strong> <%= current_user.first_name %></p>
+    <%= f.input :assignee_id, collection: @assignees, label: "Assignee", value_method: :id, label_method: :email, include_blank: "Select an assignee" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
 <% end %>

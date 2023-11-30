@@ -52,8 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_105201) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.integer "priority"
-    t.bigint "creator_id", null: false
-    t.bigint "assignee_id", null: false
+    t.bigint "creator_id"
+    t.bigint "assignee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "completed"
