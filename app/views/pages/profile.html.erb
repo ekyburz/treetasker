@@ -1,9 +1,14 @@
 <h1>Profile Page</h1>
 <div class="">
   <%# <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" /> %>
-  <%= cl_image_tag @user.photo.key, class: "avatar"%>
+  <% if @user.photo.key? %>
+    <%= cl_image_tag @user.photo.key, class: "avatar" %>
+  <% else %>
+    <i class="fa-regular fa-user fa-2xl"></i>
+  <% end %>
   <%= @user.first_name %>
   <%= @user.last_name %>
+  <%= @user.status.capitalize %>
 </div>
 
 <%# Handling Image Update with a modal %>
@@ -43,7 +48,6 @@
   </div>
 </div>
 
-
 <%# Change the Firstname and Lastname of the current user with a moda %>
 <div>
 <%# Button to trigger the modal %>
@@ -79,8 +83,6 @@
   </div>
 </div>
 </div>
-
-
 
 <div>
 <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#changeRemindersModal">
@@ -119,8 +121,6 @@
   <strong>Archive:</strong>
   <%# @user.archive ? 'Enabled' : 'Disabled' %>
 <%# </p> %>
-
-
 
 <!-- Button to trigger modal -->
 <%# <%= link_to 'Change Password', '#', class: 'btn btn-primary', data: { toggle: "modal", target: '#changePasswordModal' }%>

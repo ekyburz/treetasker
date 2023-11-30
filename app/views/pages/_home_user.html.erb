@@ -29,7 +29,11 @@
       </li>
       <li>
         <%= link_to profile_path(), class: "link-body-emphasis text-decoration-none" do %>
-          <%= image_tag "treetasker-logo.png", alt: "TreeTasker - Productivity Growth", size: "50x50", class: "bi d-block mx-auto" %>
+          <% if @user.photo.key? %>
+            <%= cl_image_tag @user.photo.key, class: "avatar" %>
+          <% else %>
+            <i class="fa-regular fa-user fa-2xl"></i>
+          <% end %>
           <p>Profile</p>
         <% end %>
       </li>

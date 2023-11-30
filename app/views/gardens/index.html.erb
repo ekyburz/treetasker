@@ -2,7 +2,7 @@
   <div class="row w-100 text-left mt-3">
     <div class="col-10">
       <h1><%= @user.first_name.pluralize %> Garden!</h1>
-      <h2>User Status: Planter King</h2>
+      <h2>User Status: <%= @user.status.capitalize %></h2>
     </div>
     <div class="col-2 text-right">
       <%= link_to "Home", root_path, class: "btn btn-primary" %>
@@ -31,55 +31,3 @@
     <canvas id="myCanvas" class="border p-3 w-100"></canvas>
   </div>
 </div>
-
-<script>
-  var containerWidth = 0.8 * window.innerWidth; // Set the desired width as a percentage of the window width
-  var containerHeight = 0.8 * window.innerHeight; // Set the desired height as a percentage of the window height
-
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(75, containerWidth / containerHeight, 0.1, 1000);
-  var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas') });
-  renderer.setSize(containerWidth, containerHeight);
-  document.body.appendChild(renderer.domElement);
-
-  // Assuming @garden is an array containing tree positions or other relevant data
-  var treeObjects = [];
-
-  // Create trees based on the count
-  for (var i = 0; i < <%= @garden.trees.count %>; i++) {
-    var trunkGeometry = new THREE.BoxGeometry(0.2, 1, 0.2);
-    var trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
-    var trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
-
-    var leavesGeometry = new THREE.ConeGeometry(0.8, 1.5, 8);
-    var leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
-    var leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
-    leaves.position.y = 1;
-
-    var tree = new THREE.Group();
-    tree.add(trunk);
-    tree.add(leaves);
-
-    // Assuming @garden is an array containing tree positions or other relevant data
-    tree.position.x = <%= @garden[i].x %>;
-    tree.position.y = <%= @garden[i].y %>;
-    tree.position.z = <%= @garden[i].z %>;
-
-    treeObjects.push(tree);
-    scene.add(tree);
-  }
-
-  camera.position.z = 5;
-
-  var animate = function () {
-    requestAnimationFrame(animate);
-
-    treeObjects.forEach(function (tree) {
-      tree.rotation.y += 0.01;
-    });
-
-    renderer.render(scene, camera);
-  };
-
-  animate();
-</script>
