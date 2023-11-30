@@ -1,5 +1,5 @@
 .avatar {
-  width: 100px;
+  width: 75px;
   border-radius: 50%;
 }
 .avatar-large {
@@ -17,6 +17,16 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.profile-picture {
+  position: relative;
+}
+
+.fa-camera {
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.1rem;
 }
 
 // * {
