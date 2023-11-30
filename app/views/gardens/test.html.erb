@@ -1,0 +1,93 @@
+<div class="container">
+
+  <div class="row w-100 text-left mt-3">
+
+    <div class="col-10">
+      <h1><%= @user.first_name.pluralize %> Garden!</h1>
+      <h2>User Status: Planter King</h2>
+    </div>
+
+    <div class="col-2 text-right">
+      <%= link_to "Home", root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<div class="middle-container w-100 mt-5">
+  <div class="row gx-5">
+    <div class="col">
+
+      <div class="p-3 bg-white border">
+        <h2>Statistics</h2>
+        <p>You Have planted a total of <strong><%= @garden.trees.count %></strong> trees!</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="p-3 bg-white border">
+        <h2>Filter by:</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-centerr">
+  <canvas id="myCanvas" style="border: 3px solid;"></canvas>
+</div>
+
+<script>
+  var containerWidth = 0.8 * window.innerWidth; // Set the desired width as a percentage of the window width
+  var containerHeight = 0.8 * window.innerHeight; // Set the desired height as a percentage of the window height
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(75, containerWidth / containerHeight, 0.1, 1000);
+  var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas') });
+  renderer.setSize(containerWidth, containerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // Assuming @garden.trees is an array containing tree positions or other relevant data
+  var treeObjects = [];
+
+  // Create trees based on the count
+  for (var i = 0; i < <%= @garden.trees.count %>; i++) {
+    var trunkGeometry = new THREE.BoxGeometry(0.2, 1, 0.2);
+    var trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
+    var trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+
+    var leavesGeometry = new THREE.ConeGeometry(0.8, 1.5, 8);
+    var leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
+    var leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
+    leaves.position.y = 1;
+
+    // Set random positions for each tree
+    var x = Math.random() * (containerWidth - trunkGeometry.parameters.width);
+    var y = Math.random() * (containerHeight - trunkGeometry.parameters.height);
+
+    trunk.position.set(x - containerWidth / 2, y - containerHeight / 2, 0);
+    leaves.position.set(trunk.position.x, trunk.position.y + 1, 0);
+
+    // Add the trunk and leaves to the scene
+    scene.add(trunk);
+    scene.add(leaves);
+
+    // Store the tree objects for potential future manipulation
+    treeObjects.push({ trunk: trunk, leaves: leaves });
+  }
+
+  camera.position.z = 5;
+
+  var animate = function () {
+    requestAnimationFrame(animate);
+
+    // Rotate all the trees
+    treeObjects.forEach(function (tree) {
+      tree.trunk.rotation.y += 0.01;
+      tree.leaves.rotation.y += 0.01;
+    });
+
+    renderer.render(scene, camera);
+  };
+
+  animate();
+</script>
+
+  </div>
