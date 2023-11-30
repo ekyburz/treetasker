@@ -1,4 +1,4 @@
-<div class="home-nav">
+<div class="home-nav mb-3 p-3">
   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
     <%= link_to "+ Create Taks", root_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto link-body-emphasis text-decoration-none" %>
 
@@ -28,27 +28,46 @@
         <% end %>
       </li>
       <li>
-        <a href="#" class="link-body-emphasis text-decoration-none">
-          <%= image_tag "treetasker-logo", alt: "TreeTasker - Productivity Growth", size: "50x50", class: "bi d-block mx-auto mb-1" %>
-          Profile
-          </a>
+        <%= link_to profile_path(), class: "link-body-emphasis text-decoration-none" do %>
+          <%= image_tag "treetasker-logo", alt: "TreeTasker - Productivity Growth", size: "50x50", class: "bi d-block mx-auto" %>
+          <p>Profile</p>
+        <% end %>
       </li>
     </ul>
   </div>
 </div>
 
-<div>
-  <h4><strong>D</strong>o</h4>
-  <p>Task to do NOW!</p>
-  <h4><strong>D</strong>ecide</h4>
-  <p>Upcoming Task</p>
-  <h4><strong>D</strong>elegate</h4>
-  <p>Task to delegate</p>
-  <h4><strong>D</strong>epository</h4>
-  <p>Your oldest Task</p>
+<div class="container text-center home-tasks mb-3">
+  <div class="row">
+    <div class="col m-3 p-3">
+      <h4><strong>D</strong>o</h4>
+      <p>Task to do NOW!</p>
+    </div>
+    <div class="col m-3 p-3">
+      <h4><strong>D</strong>ecide</h4>
+      <p>Upcoming Task</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mx-3 mb-3 p-3">
+      <h4><strong>D</strong>elegate</h4>
+      <p>Task to delegate</p>
+    </div>
+    <div class="col mx-3 mb-3 p-3">
+      <h4><strong>D</strong>epository</h4>
+      <p>Your oldest Task</p>
+    </div>
+  </div>
 </div>
 
-<div>
-  <h4>Statistics</h4>
-  <button type="button" class="btn btn-success"><%= link_to "Garden", root_path(), class: "link-body-emphasis text-decoration-none" %></button>
+<div class="container home-stats p-3">
+  <div class="row">
+    <div class="col-9">
+      <h4>Statistics</h4>
+      <p>Here are your stats ...</p>
+    </div>
+    <div class="col-3 d-flex align-items-center justify-content-center">
+      <button type="button" class="btn btn-success"><%= link_to "Garden", root_path(), class: "link-body-emphasis text-decoration-none" %></button>
+    </div>
+  </div>
 </div>
