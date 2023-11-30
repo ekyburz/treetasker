@@ -1,19 +1,166 @@
-<p><strong>First Name:</strong>
-<%= @user.first_name %>
-</p>
+<h1>Profile Page</h1>
+<div class="">
+  <%# <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" /> %>
+  <%= cl_image_tag @user.photo.key, class: "avatar"%>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+</div>
 
-<p><strong>Last Name:</strong>
-<%= @user.last_name %>
-</p>
+<%# Handling Image Update with a modal %>
+<div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal">
+    Edit Profile Picture
+  </button>
 
-<p>
+  <!-- Modal -->
+  <div class="modal fade" id="changeProfilePictureModal" tabindex="-1" role="dialog" aria-labelledby="changeProfilePictureModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changeProfilePictureModal">Change Profile Picture</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <%# <span aria-hidden="true">&times;</span> %>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :photo, as: :file %>
+              <%= f.label :current_password, "Current Password" %>
+              <%= f.password_field :current_password, class: 'form-control' %>
+            </div>
+
+            <div class="form-actions btn btn-primary">
+              <%= f.button :submit, "Update" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%# Change the Firstname and Lastname of the current user with a moda %>
+<div>
+<%# Button to trigger the modal %>
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#changeNameModal">
+  Name
+</button>
+
+<%# Modal %>
+<div class="modal fade" id="changeNameModal" tabindex="-1" role="dialog" aria-labelledby="changeNameModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changeNameModal">Change Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
+          <div class="form-group">
+            <%= f.label :first_name, "New First Name" %>
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "new-first_name", class: 'form-control' %>
+            <%= f.label :last_name, "New Last Name" %>
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "new-last_name", class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :current_password, "Current Password" %>
+            <%= f.password_field :current_password, class: 'form-control' %>
+          </div>
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div>
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#changeRemindersModal">
+  Reminders
+</button>
+
+<div class="modal fade" id="changeRemindersModal" tabindex="-1" role="dialog" aria-labelledby="changeRemindersModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changeRemindersModalLabel">Change Reminder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
+      <div class="form-group">
+          <div class="form-group">
+            <%= f.label :reminders, "Reminders" %>
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "new-reminder", class: 'form-control' %>
+          </div>
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<%# <p>
   <strong>Reminders:</strong>
   <%# @user.reminders ? 'Enabled' : 'Disabled' %>
-</p>
+<%# </p> %>
 
-<p>
+<%# <p>
   <strong>Archive:</strong>
   <%# @user.archive ? 'Enabled' : 'Disabled' %>
-</p>
+<%# </p> %>
 
-<%= link_to 'Edit', root_path(), class:"btn btn-primary"%>
+
+
+<!-- Button to trigger modal -->
+<%# <%= link_to 'Change Password', '#', class: 'btn btn-primary', data: { toggle: "modal", target: '#changePasswordModal' }%>
+<!-- Button trigger modal -->
+<div>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+  Change Password
+</button>
+<!-- Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
+          <%= f.hidden_field :reset_password_token %>
+
+           <div class="form-group">
+            <%= f.label :current_password, "Current Password" %>
+            <%= f.password_field :current_password, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, "New Password" %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, "Confirm New Password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          </div>
+          <%= f.submit "Change Password", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
