@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
-  resources :gardens, only: [:show]
+  resources :gardens, only: [:index]
   resources :trees, only: %i[show new create]
 
   devise_for :users

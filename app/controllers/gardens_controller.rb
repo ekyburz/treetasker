@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  def show
+  def index
     @user = current_user
     @garden = @user.garden
   end
