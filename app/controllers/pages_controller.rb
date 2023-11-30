@@ -3,6 +3,10 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    @tasks_p1 = Task.where(priority: 1)
+    @tasks_p2 = Task.where(priority: 2)
+    @tasks_p3 = Task.where(priority: 3)
+    @tasks_p4 = Task.where(priority: 4)
   end
 
   def profile

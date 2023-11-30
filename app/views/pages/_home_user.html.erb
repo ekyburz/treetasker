@@ -1,7 +1,6 @@
 <div class="home-nav mb-3 p-3">
   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-    <%= link_to "+ Create Taks", root_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto link-body-emphasis text-decoration-none" %>
-
+    <%= link_to "+ Create Taks", new_task_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto link-body-emphasis text-decoration-none" %>
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
       <li>
         <%= link_to root_path(), class: "link-body-emphasis text-decoration-none" do %>
@@ -45,21 +44,45 @@
   <div class="row">
     <div class="col m-3 p-3">
       <h4><strong>D</strong>o</h4>
-      <p>Task to do NOW!</p>
+      <p><em>Task to do NOW!</em></p>
+      <ul>
+        <% @tasks_p1.each do |task| %>
+          <li><%= render "tasks/task_home", task: task %></li>
+          <p><%= link_to "Show this task", task %></p>
+        <% end %>
+      </ul>
     </div>
     <div class="col m-3 p-3">
       <h4><strong>D</strong>ecide</h4>
-      <p>Upcoming Task</p>
+      <p><em>Upcoming Task</em></p>
+      <ul>
+        <% @tasks_p2.each do |task| %>
+          <li><%= render "tasks/task_home", task: task %></li>
+          <p><%= link_to "Show this task", task %></p>
+        <% end %>
+      </ul>
     </div>
   </div>
   <div class="row">
     <div class="col mx-3 mb-3 p-3">
       <h4><strong>D</strong>elegate</h4>
-      <p>Task to delegate</p>
+      <p><em>Task to delegate</em></p>
+      <ul>
+        <% @tasks_p3.each do |task| %>
+          <li><%= render "tasks/task_home", task: task %></li>
+          <p><%= link_to "Show this task", task %></p>
+        <% end %>
+      </ul>
     </div>
     <div class="col mx-3 mb-3 p-3">
       <h4><strong>D</strong>epository</h4>
-      <p>Your oldest Task</p>
+      <p><em>Your oldest Task</em></p>
+      <ul>
+        <% @tasks_p4.each do |task| %>
+          <li><%= render "tasks/task_home", task: task %></li>
+          <p><%= link_to "Show this task", task %></p>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
@@ -71,7 +94,7 @@
       <p>Here are your stats ...</p>
     </div>
     <div class="col-3 d-flex align-items-center justify-content-center">
-      <button type="button" class="btn btn-success"><%= link_to "Garden", root_path(), class: "link-body-emphasis text-decoration-none" %></button>
+      <button type="button" class="btn btn-success"><%= link_to "Garden", gardens_path(), class: "link-body-emphasis text-decoration-none" %></button>
     </div>
   </div>
 </div>

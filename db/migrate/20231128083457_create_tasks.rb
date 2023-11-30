@@ -3,8 +3,8 @@ class CreateTasks < ActiveRecord::Migration[7.1]
     create_table :tasks do |t|
       t.string :name
       t.integer :priority
-      t.references :creator, null: false
-      t.references :assignee, null: false
+      t.references :creator
+      t.references :assignee
       t.timestamps
     end
     add_foreign_key :tasks, :users, column: :creator_id
