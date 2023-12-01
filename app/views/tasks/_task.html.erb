@@ -1,22 +1,17 @@
 <div id="<%= dom_id task %>">
-  <p>
-    <strong>Name:</strong>
-    <%= task.name %>
-  </p>
+  <h2><%= task.name %></h2>
 
-  <p>
-    <strong>Priority:</strong>
-    <%= task.priority %>
-  </p>
+  <div>
+    <h5>Details</h5>
+    <p>Some details about your taks ...</p>
+  </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= task.creator_id %>
-  </p>
-
-  <p>
-    <strong>Assignee:</strong>
-    <%= task.assignee_id %>
-  </p>
+  <% if task.priority == 3 %>
+    <div>
+      <h5>Assignee Details</h5>
+      <p><strong>Name:</strong> <%= task.assignee.first_name %> <%= task.assignee.last_name %>
+      <br/><strong>Email:</strong> <%= task.assignee.email %></p>
+    </div>
+  <% end %>
 
 </div>

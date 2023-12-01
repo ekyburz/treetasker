@@ -42,45 +42,45 @@
 
 <div class="container text-center home-tasks mb-3">
   <div class="row">
-    <div class="col m-3 p-3">
+    <div class="col m-3 p-3 priority-do">
       <h4><strong>D</strong>o</h4>
       <p><em>Task to do NOW!</em></p>
+      <hr/>
       <ul>
         <% @tasks_p1.each do |task| %>
-          <li><%= render "tasks/task_home", task: task %></li>
-          <p><%= link_to "Show this task", task %></p>
+          <%= render "tasks/task_home", task: task %>
         <% end %>
       </ul>
     </div>
-    <div class="col m-3 p-3">
+    <div class="col m-3 p-3 priority-decide">
       <h4><strong>D</strong>ecide</h4>
       <p><em>Upcoming Task</em></p>
+      <hr/>
       <ul>
         <% @tasks_p2.each do |task| %>
-          <li><%= render "tasks/task_home", task: task %></li>
-          <p><%= link_to "Show this task", task %></p>
+          <%= render "tasks/task_home", task: task %>
         <% end %>
       </ul>
     </div>
   </div>
   <div class="row">
-    <div class="col mx-3 mb-3 p-3">
+    <div class="col mx-3 mb-3 p-3 priority-delegate">
       <h4><strong>D</strong>elegate</h4>
       <p><em>Task to delegate</em></p>
+      <hr/>
       <ul>
         <% @tasks_p3.each do |task| %>
-          <li><%= render "tasks/task_home", task: task %></li>
-          <p><%= link_to "Show this task", task %></p>
+          <%= render "tasks/task_home", task: task %>
         <% end %>
       </ul>
     </div>
-    <div class="col mx-3 mb-3 p-3">
+    <div class="col mx-3 mb-3 p-3 priority-depository">
       <h4><strong>D</strong>epository</h4>
       <p><em>Your oldest Task</em></p>
+      <hr/>
       <ul>
         <% @tasks_p4.each do |task| %>
-          <li><%= render "tasks/task_home", task: task %></li>
-          <p><%= link_to "Show this task", task %></p>
+          <%= render "tasks/task_home", task: task %>
         <% end %>
       </ul>
     </div>
