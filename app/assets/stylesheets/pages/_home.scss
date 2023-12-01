@@ -8,5 +8,37 @@
 }
 
 .home-nav, .home-tasks, .home-stats, .home-tasks .col {
-  border: 1px solid;
+  border: 2px solid;
+  border-radius: 10px
+}
+
+.home-tasks ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.home-tasks a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.home-tasks a:hover {
+  font-weight: bold;
+}
+
+.home-tasks .priority-do {
+  background-color: #90EE90;
+}
+
+.home-tasks .priority-decide {
+  background-color: #ADD8E6;
+}
+
+.home-tasks .priority-delegate {
+  background-color: #F08080;
+}
+
+.home-tasks .priority-depository {
+  background-color: #D3D3D3;
 }

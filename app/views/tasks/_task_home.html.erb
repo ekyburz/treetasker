@@ -1,6 +1,1 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Name:</strong>
-    <%= task.name %>
-  </p>
-</div>
+<li id="<%= dom_id task %>"><%= link_to "#{task.name}", task %></li>

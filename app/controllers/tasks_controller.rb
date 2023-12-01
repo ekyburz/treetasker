@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_assignees, only: %i[new edit]
 
   # GET /tasks or /tasks.json
   def index
@@ -13,7 +14,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task.creator = current_user
-    @assignees = User.all
+    @task.assignee = current_user
   end
 
   # GET /tasks/1/edit
@@ -62,6 +63,10 @@ class TasksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def set_assignees
+    @assignees = User.all
   end
 
   # Only allow a list of trusted parameters through.
