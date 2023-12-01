@@ -1,10 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="d-flex justify-content-end mb-3">
-  <%= link_to "Edit this task", edit_task_path(@task), class: "btn btn-success me-3" %>
-  <%= link_to "Back to tasks", root_path, class: "btn btn-outline-success" %>
-
+<div class="container d-flex justify-content-center ">
+  <div class="row">
+    <div class="col-5">
+    <%= render @task %>
+    <div class="buttons-group mt-3">
+      <%= link_to "Edit this task", edit_task_path(@task), class: "btn btn-success mb-3 " %>
+      <%= link_to "Back to tasks", root_path, class: "btn btn-outline-success" %>
+    </div>
   <%# button_to "Destroy this task", @task, method: :delete, class: "btn btn-warning ms-3" %>
-</div>
+  </div>
 
-<%= render @task %>
+    <div class="canvas-container col-3 mt-2 " data-tree-count="1">
+      <div class="col">
+        <canvas id="myCanvas" class="border p-3" style="height: 70vh;"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

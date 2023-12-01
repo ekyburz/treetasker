@@ -59,7 +59,10 @@ document.addEventListener("turbo:load", function () {
       while (collisionDetected && attempts < 100) {
         let randomY = Math.random() * (-4 - -1.5) + -1.5;
         let randomX = Math.random() * (9 - -5) + -7;
-
+        if (treeCount == 1) {
+          randomY = -1.5;
+          randomX = 0;
+        }
         treeGroup.position.y = randomY;
         treeGroup.position.x = randomX;
 
@@ -78,6 +81,9 @@ document.addEventListener("turbo:load", function () {
     }
 
     camera.position.z = 6;
+    if (treeCount == 1) {
+      camera.position.z = 3;
+    }
 
     const animate = function () {
       requestAnimationFrame(animate);
