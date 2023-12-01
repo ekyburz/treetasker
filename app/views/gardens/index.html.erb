@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row w-100 text-left mt-3">
-    <div class="col-10">
-      <h1><%= @user.first_name.pluralize %> Garden!</h1>
-      <h2>User Status: <%= @user.status.capitalize %></h2>
+  <div class="row w-100 justify-content-between">
+    <div class="col-9">
+      <h2><%= @user.first_name.pluralize %> Garden!</h2>
+      <h4>Gardener Status: <strong><%= @user.status.capitalize %></strong></h4>
     </div>
-    <div class="col-2 text-right">
-      <%= link_to "Home", root_path, class: "btn btn-success" %>
+    <div class="col-3 pt-2 pe-0">
+      <%= link_to "Home", root_path, class: "btn btn-success float-end" %>
     </div>
   </div>
 

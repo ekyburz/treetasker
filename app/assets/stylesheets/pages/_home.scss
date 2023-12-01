@@ -18,12 +18,12 @@
   margin: 0;
 }
 
-.home-tasks a {
+.home-tasks a, a.tt-link {
   text-decoration: none;
   color: #000000;
 }
 
-.home-tasks a:hover {
+.home-tasks a:hover, a.tt-link:hover {
   font-weight: bold;
 }
 
