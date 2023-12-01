@@ -7,7 +7,7 @@ document.addEventListener("turbo:load", function () {
     const container = document.querySelector(".canvas-container");
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
-    const treeCount = parseInt(container.dataset.treeCount, 10);
+    let treeCount = parseInt(container.dataset.treeCount, 10);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(

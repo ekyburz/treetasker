@@ -1,6 +1,6 @@
 <div class="home-nav mb-3 p-3">
   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-    <%= link_to "+ Create Taks", new_task_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto link-body-emphasis text-decoration-none" %>
+    <%= link_to "+ Create Task", new_task_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto btn btn-outline-dark" %>
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
       <li>
         <%= link_to tasks_path(), class: "link-body-emphasis text-decoration-none" do %>
@@ -45,7 +45,7 @@
     <div class="col m-3 p-3 priority-do">
       <h4><strong>D</strong>o</h4>
       <p><em>Task to do NOW!</em></p>
-      <hr/>
+      <hr>
       <ul>
         <% @tasks_p1.each do |task| %>
           <%= render "tasks/task_home", task: task %>
@@ -55,7 +55,7 @@
     <div class="col m-3 p-3 priority-decide">
       <h4><strong>D</strong>ecide</h4>
       <p><em>Upcoming Task</em></p>
-      <hr/>
+      <hr>
       <ul>
         <% @tasks_p2.each do |task| %>
           <%= render "tasks/task_home", task: task %>
@@ -67,7 +67,7 @@
     <div class="col mx-3 mb-3 p-3 priority-delegate">
       <h4><strong>D</strong>elegate</h4>
       <p><em>Task to delegate</em></p>
-      <hr/>
+      <hr>
       <ul>
         <% @tasks_p3.each do |task| %>
           <%= render "tasks/task_home", task: task %>
@@ -77,7 +77,7 @@
     <div class="col mx-3 mb-3 p-3 priority-depository">
       <h4><strong>D</strong>epository</h4>
       <p><em>Your oldest Task</em></p>
-      <hr/>
+      <hr>
       <ul>
         <% @tasks_p4.each do |task| %>
           <%= render "tasks/task_home", task: task %>
