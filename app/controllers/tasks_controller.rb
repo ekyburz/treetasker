@@ -3,7 +3,8 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    # @tasks = Task.all
+    @tasks_by_priority = Task.all.order(:priority).group_by(&:priority)
   end
 
   # GET /tasks/1 or /tasks/1.json
