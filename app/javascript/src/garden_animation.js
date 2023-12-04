@@ -25,11 +25,11 @@ document.addEventListener("turbo:load", function () {
     renderer.setClearColor(0xffffff, 0);
 
     const createTree = () => {
-      const trunkGeometry = new THREE.BoxGeometry(0.2, 1, 0.2);
+      const trunkGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1, 12);
       const trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8b4513 });
       const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
 
-      const leavesGeometry = new THREE.ConeGeometry(0.8, 1.5, 8);
+      const leavesGeometry = new THREE.ConeGeometry(0.8, 1.5, 12);
       const leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x1cb41c });
       const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
 
@@ -56,7 +56,7 @@ document.addEventListener("turbo:load", function () {
       let collisionDetected = true;
       let attempts = 0;
 
-      while (collisionDetected && attempts < 100) {
+      while (collisionDetected && attempts < 10) {
         let randomY = Math.random() * (-4 - -1.5) + -1.5;
         let randomX = Math.random() * (9 - -5) + -7;
         if (treeCount == 1) {
