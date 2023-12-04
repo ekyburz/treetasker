@@ -27,6 +27,7 @@ end
 
 # Create a task with a tree
 task1 = Task.create!(name: 'Water the tree', creator: user1, assignee: user1, priority: 1, completed: false)
-task2 = Task.create!(name: 'Prune the tree', creator: user1, assignee: user1, priority: 2, deadline: DateTime.current + 1, completed: true)
+task2 = Task.create!(name: 'Prune the tree', creator: user1, assignee: user1, priority: 2, completed: true,
+                     deadline: DateTime.current + 1.day)
 task3 = Task.create!(name: 'Photograph the tree', creator: user1, assignee: user2, priority: 3, completed: false)
 task4 = Task.create!(name: 'Draw the tree', creator: user1, assignee: user1, priority: 4, completed: true)
