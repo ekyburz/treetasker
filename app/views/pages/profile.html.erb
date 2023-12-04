@@ -60,43 +60,6 @@
     </div>
   </div>
 </div>
-
-
-<div>
-<button type="button" class="green btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#changeRemindersModal">
-  Reminders
-</button>
-
-<div class="modal fade" id="changeRemindersModal" tabindex="-1" role="dialog" aria-labelledby="changeRemindersModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="changeRemindersModalLabel">Change Reminder</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
-      <div class="form-group">
-          <div class="form-group">
-            <%= f.label :reminders, "Reminders" %>
-            <%= f.text_field :first_name, autofocus: true, autocomplete: "new-reminder", class: 'form-control' %>
-          </div>
-          <%= f.submit "Update", class: 'btn btn-success' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div>
-<button type="button" class="green btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#changeArchiveModal">
-  Archive
-</button>
-</div>
-
-</div>
 </div>
 
 <%# <p>
