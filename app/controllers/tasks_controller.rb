@@ -4,19 +4,19 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def task_do
-    @tasks = Task.where(priority: 1)
+    @tasks = Task.where(priority: 1, deleted: false)
   end
 
   def task_decide
-    @tasks = Task.where(priority: 2)
+    @tasks = Task.where(priority: 2, deleted: false)
   end
 
   def task_delegate
-    @tasks = Task.where(priority: 3)
+    @tasks = Task.where(priority: 3, deleted: false)
   end
 
   def task_depository
-    @tasks = Task.where(priority: 4)
+    @tasks = Task.where(priority: 4, deleted: false)
   end
 
   def index
@@ -67,11 +67,15 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1 or /tasks/1.json
   def destroy
-    @task.destroy!
+    @task = Task.find(params[:id])
+    @task.update(deleted: true)
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+      if @task.save
+        format.html { redirect_to archive_path, notice: 'Task was successfully deleted.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -88,6 +92,6 @@ class TasksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:name, :details, :priority, :deadline, :completed, :creator_id, :assignee_id)
+    params.require(:task).permit(:name, :details, :priority, :deadline, :completed, :creator_id, :assignee_id, :deleted)
   end
 end

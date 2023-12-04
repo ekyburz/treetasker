@@ -13,4 +13,9 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
   end
+
+  def archive
+    @user = current_user
+    @tasks_by_priority = Task.where(completed: true, deleted: false).order(:priority).group_by(&:priority)
+  end
 end
