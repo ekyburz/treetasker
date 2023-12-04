@@ -1,11 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="container bg-light rounded-4">
-  <div class="d-flex justify-content-between align-items-center mt-3">
-    <h1 class="me-3"><strong>My Tasks</strong></h1>
-    <%= link_to "Home", root_path, class: "btn btn-success text-decoration-none" %>
-  </div>
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="me-3"><strong>My Tasks</strong></h1>
+  <%= link_to "Home", root_path, class: "btn btn-success text-decoration-none" %>
+</div>
 
+<div class="container bg-light rounded-4">
   <% @tasks_by_priority.each do |priority, tasks| %>
     <h2><%= Task::PRIORITIES[priority] %></h2>
     <div class="row">
@@ -14,7 +14,7 @@
           <div class="card rounded-4">
             <div class="card-body">
               <%= render partial: "task", locals: { task: task } %>
-              <p class="mt-2">
+              <p class="mt-2 mb-0">
                 <%= link_to "Details", task, class: "btn btn-success text-decoration-none" %>
               </p>
             </div>
@@ -24,14 +24,3 @@
     </div>
   <% end %>
 </div>
-
-
-
-<%# <div id="tasks">
-  <% @tasks.each do |task| %>
-    <%# <%= render task %>
-    <%# <p>
-      <%= link_to "Show this task", task %>
-    <%# </p>
-  <% end %>
-<%# </div> %>
