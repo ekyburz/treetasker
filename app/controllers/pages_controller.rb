@@ -3,6 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    return unless @user
+
     @garden = @user.garden
     @tasks_p1 = Task.where(priority: 1, completed: false).limit(4).order(:created_at)
     @tasks_p2 = Task.where(priority: 2, completed: false).limit(4).order(:created_at)
