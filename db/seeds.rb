@@ -9,26 +9,24 @@
 #   end
 
 # Create a user with a garden and a tree
-user1 = User.create!(email: 'user1@example.com') do |user|
+user1 = User.create!(email: 'etienne@treetasker.ch') do |user|
   user.password = 'password'
-  user.first_name = 'John'
-  user.last_name = 'Doe'
+  user.first_name = 'Etienne'
+  user.last_name = 'Kyburz'
 end
-user2 = User.create!(email: 'user2@example.com') do |user|
+user2 = User.create!(email: 'nicolas@treetasker.ch') do |user|
   user.password = 'password'
-  user.first_name = 'Jane'
-  user.last_name = 'Doe'
+  user.first_name = 'Nicolas'
+  user.last_name = 'Messer'
+end
+user3 = User.create!(email: 'anhnam@treetasker.ch') do |user|
+  user.password = 'password'
+  user.first_name = 'Anh Nam'
+  user.last_name = 'Le Giang'
 end
 
 # Create a task with a tree
 task1 = Task.create!(name: 'Water the tree', creator: user1, assignee: user1, priority: 1, completed: false)
 task2 = Task.create!(name: 'Prune the tree', creator: user1, assignee: user1, priority: 2, completed: true)
-task3 = Task.create!(name: 'Water the tree', creator: user1, assignee: user2, priority: 3, completed: false)
-task4 = Task.create!(name: 'Prune the tree', creator: user1, assignee: user1, priority: 4, completed: true)
-
-# Create a tree with a task
-tree1 = Tree.create!(name: 'Oak', task: task1, garden: user1.garden)
-tree2 = Tree.create!(name: 'Maple', task: task2, garden: user1.garden)
-tree3 = Tree.create!(name: 'Pine', task: task3, garden: user1.garden)
-tree4 = Tree.create!(name: 'Birch', task: task4, garden: user1.garden)
-tree5 = Tree.create!(name: 'Willow', task: task3, garden: user2.garden)
+task3 = Task.create!(name: 'Photograph the tree', creator: user1, assignee: user2, priority: 3, completed: false)
+task4 = Task.create!(name: 'Draw the tree', creator: user1, assignee: user1, priority: 4, completed: true)

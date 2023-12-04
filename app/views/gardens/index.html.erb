@@ -13,21 +13,33 @@
     <div class="row gx-5">
       <div class="col">
         <div class="p-3 bg-white border">
-          <h2>Statistics</h2>
-          <p>You have planted a total of <strong><%= @garden.trees.count %></strong> trees!</p>
+            <div style="display: flex; justify-content: space-between;">
+              <h2>Statistics</h2>
+              <h2 class="mr-2">Total trees: <strong><%= @garden.trees.count %></strong></h2>
+            </div>
+          <p>You have planted a total of <strong><%= @garden.trees.where(name: "Do Tree").count %></strong> Do trees!</p>
+          <p>You have planted a total of <strong><%= @garden.trees.where(name: "Decide Tree").count %></strong> Decide trees!</p>
+          <p>You have planted a total of <strong><%= @garden.trees.where(name: "Delegate Tree").count %></strong> Delegate trees!</p>
+          <p>You have planted a total of <strong><%= @garden.trees.where(name: "Depository Tree").count %></strong> Depository trees!</p>
         </div>
       </div>
       <div class="col">
         <div class="p-3 bg-white border">
           <h2>Filter by:</h2>
+          <div class="row justify-content-center" data-controller="update-canvas-scene">
+            <%= form_with url: gardens_path, method: :get, class: "d-flex", data: { "update-canvas-scene-target": "form" } do %>
+            <%= select_tag :date_filter,
+            options_for_select(["Day", "Week", "Month", "Year"], params[:date_filter]),
+            class: "form-control",
+            prompt: "Select Date Filter",
+            data: { "update-canvas-scene-target": "select" } %>
+            <%= submit_tag "Search", name: "", class: "btn btn-success" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="canvas-container w-100 mt-5" data-tree-count="<%= @current_user.garden.trees.count %>">
-  <div class="col">
-    <canvas id="myCanvas" class="border p-3 w-100"></canvas>
-  </div>
-</div>
+<%= render "canvas", garden: @garden %>
