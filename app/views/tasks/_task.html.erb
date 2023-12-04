@@ -4,6 +4,9 @@
   <div>
     <h5>Details</h5>
     <p><%= task.details %></p>
+    <% if task.priority == 2 %>
+      <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
+    <% end %>
     <% if task.completed? %>
       <p><i class="fa-regular fa-square-check fa-xl"></i> Completed!</p>
     <% else %>
