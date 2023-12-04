@@ -1,39 +1,39 @@
 <div class="home-nav mb-3 p-3">
-  <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-    <%= link_to "+ Create Task", new_task_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto btn btn-outline-dark" %>
-    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-      <li>
+  <div class="d-flex flex-wrap align-items-center justify-content-between">
+    <%= link_to "+ Create Task", new_task_path(), class: "d-flex my-2 btn btn-outline-dark" %>
+    <ul class="nav">
+      <li class="priority-do">
         <%= link_to tasks_do_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-regular fa-circle-play fa-2xl"></i>
           <p>DO</p>
         <% end %>
       </li>
-      <li>
+      <li class="priority-decide">
         <%= link_to tasks_decide_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-regular fa-calendar-plus fa-2xl"></i>
           <p>DECIDE</p>
         <% end %>
       </li>
-      <li>
+      <li class="priority-delegate">
         <%= link_to tasks_delegate_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-solid fa-user-plus fa-2xl"></i>
           <p>DELEGATE</p>
         <% end %>
       </li>
-      <li>
+      <li class="priority-depository">
         <%= link_to tasks_depository_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-solid fa-box-archive fa-2xl"></i>
           <p>DEPOSITORY</p>
         <% end %>
       </li>
-      <li>
+      <li class="profile">
         <%= link_to profile_path(), class: "link-body-emphasis text-decoration-none" do %>
           <% if @user.photo.key? %>
-            <%= cl_image_tag @user.photo.key, class: "avatar" %>
+            <%= cl_image_tag @user.photo.key, class: "avatar-nav" %>
           <% else %>
             <i class="fa-regular fa-user fa-2xl"></i>
           <% end %>
-          <p>Profile</p>
+          <p>PROFILE</p>
         <% end %>
       </li>
     </ul>
@@ -88,14 +88,15 @@
 </div>
 
 <div class="container home-stats p-3">
-  <div class="row">
-    <div class="col-9">
-      <h4>Statistics</h4>
-      <p class="mr-2">Total trees: <strong><%= @garden.trees.count %></strong></p>
-      <p>For more stats go to garden!</p>
+  <div class="row align-items-baseline">
+    <div class="col-9 d-flex align-items-baseline">
+      <h4>Statistics |</h4>
+      <p class="mb-3 px-1">Total trees: <strong><%= @garden.trees.count %></strong> / For more stats go to garden!</p>
     </div>
-    <div class="col-3 d-flex align-items-center justify-content-center">
-      <%= link_to "Garden", gardens_path(), class: "btn btn-success" %>
+    <div class="col-3">
+      <div class="d-grid">
+        <%= link_to "Garden", gardens_path(), class: "btn btn-success btn-lg" %>
+      </div>
     </div>
   </div>
 </div>
