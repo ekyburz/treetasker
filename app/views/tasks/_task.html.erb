@@ -1,25 +1,35 @@
 <div id="<%= dom_id task %>">
-  <h2><%= task.name %></h2>
-
-  <div>
-    <h5>Details</h5>
-    <p><%= task.details %></p>
-    <% if task.priority == 2 %>
-      <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
+  <div class="card">
+    <div class="card-header">
+    <% if task.priority == 1 %>
+      <p>DO</p>
+    <% elsif task.priority == 2 %>
+      <p>DECIDE</p>
+    <% elsif task.priority == 3 %>
+      <p>DELEGATE</p>
+    <% elsif task.priority == 4 %>
+      <p>DEPOSITORY</p>
     <% end %>
-    <% if task.completed? %>
-      <p><i class="fa-regular fa-square-check fa-xl"></i> Completed!</p>
-    <% else %>
-      <p><i class="fa-regular fa-rectangle-xmark fa-xl"></i> Completed?</p>
-    <% end %>
-  </div>
-
-  <% if task.priority == 3 %>
-    <div>
-      <h5>Assignee Details</h5>
-      <p><strong>Name:</strong> <%= task.assignee.first_name %> <%= task.assignee.last_name %>
-      <br><strong>Email:</strong> <%= task.assignee.email %></p>
     </div>
-  <% end %>
-
+    <div class="card-body">
+      <h2 class="card-title"><%= task.name %></h2>
+      <h5>Details</h5>
+      <p class="card-text"><%= task.details %></p>
+      <% if task.priority == 2 %>
+        <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
+      <% end %>
+      <% if task.completed? %>
+        <p><i class="fa-regular fa-square-check fa-xl"></i> Completed!</p>
+      <% else %>
+        <p><i class="fa-regular fa-rectangle-xmark fa-xl"></i> Completed?</p>
+      <% end %>
+      <% if task.priority == 3 %>
+        <div>
+          <h5>Assignee Details</h5>
+          <p><strong>Name:</strong> <%= task.assignee.first_name %> <%= task.assignee.last_name %>
+          <br><strong>Email:</strong> <%= task.assignee.email %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

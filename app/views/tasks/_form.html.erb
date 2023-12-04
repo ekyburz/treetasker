@@ -3,9 +3,9 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: "Name your task" %>
     <%= f.input :details, placeholder: "Describe your task ..." %>
-    <%= f.input :priority, collection: 1..4, prompt: "Select your priority" %>
+    <%= f.input :priority, collection: [['1', 'Do'], ['2', 'Decide'], ['3', 'Delegate'], ['4', 'Depository']], label_method: :second, value_method: :first, prompt: "Select your priority" %>
     <%= f.hidden_field :creator_id %>
     <% if @task.priority == 3 || @task.id.nil? %>
       <%= f.input :assignee_id, collection: @assignees, label: "Assignee", value_method: :id, label_method: :email, prompt: "Select an assignee" %>
