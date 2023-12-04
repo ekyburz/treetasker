@@ -4,10 +4,10 @@ class PagesController < ApplicationController
   def home
     @user = current_user
     @garden = @user.garden
-    @tasks_p1 = Task.where(priority: 1)
-    @tasks_p2 = Task.where(priority: 2)
-    @tasks_p3 = Task.where(priority: 3)
-    @tasks_p4 = Task.where(priority: 4)
+    @tasks_p1 = Task.where(priority: 1, completed: false).limit(4).order(:created_at)
+    @tasks_p2 = Task.where(priority: 2, completed: false).limit(4).order(:created_at)
+    @tasks_p3 = Task.where(priority: 3, completed: false).limit(4).order(:created_at)
+    @tasks_p4 = Task.where(priority: 4, completed: false).limit(4).order(:created_at)
   end
 
   def profile

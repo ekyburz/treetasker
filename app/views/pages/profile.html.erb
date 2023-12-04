@@ -8,7 +8,7 @@
     <!-- Profile Picture -->
     <div class="profile-picture me-3">
       <% if @user.photo.key? %>
-        <%= cl_image_tag @user.photo.key, class: "avatar" %>
+        <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
       <% else %>
         <i class="fa-regular fa-user fa-4x"></i>
       <% end %>
