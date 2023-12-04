@@ -14,6 +14,9 @@
     <div class="card-body">
       <h2 class="card-title"><%= task.name %></h2>
       <h5>Details</h5>
+      <% if local_assigns[:show_details_button] %>
+        <%= link_to 'Details', task, class: 'btn btn-success mt-2' %>
+      <% end %>
       <p class="card-text"><%= task.details %></p>
       <% if task.priority == 2 %>
         <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
