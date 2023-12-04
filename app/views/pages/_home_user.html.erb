@@ -3,25 +3,25 @@
     <%= link_to "+ Create Task", new_task_path(), class: "d-flex align-items-center my-2 my-lg-0 me-lg-auto btn btn-outline-dark" %>
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
       <li>
-        <%= link_to tasks_path(), class: "link-body-emphasis text-decoration-none" do %>
+        <%= link_to tasks_do_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-regular fa-circle-play fa-2xl"></i>
           <p>DO</p>
         <% end %>
       </li>
       <li>
-        <%= link_to tasks_path(), class: "link-body-emphasis text-decoration-none" do %>
+        <%= link_to tasks_decide_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-regular fa-calendar-plus fa-2xl"></i>
           <p>DECIDE</p>
         <% end %>
       </li>
       <li>
-        <%= link_to tasks_path(), class: "link-body-emphasis text-decoration-none" do %>
+        <%= link_to tasks_delegate_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-solid fa-user-plus fa-2xl"></i>
           <p>DELEGATE</p>
         <% end %>
       </li>
       <li>
-        <%= link_to tasks_path(), class: "link-body-emphasis text-decoration-none" do %>
+        <%= link_to tasks_depository_path, class: "link-body-emphasis text-decoration-none" do %>
           <i class="fa-solid fa-box-archive fa-2xl"></i>
           <p>DEPOSITORY</p>
         <% end %>

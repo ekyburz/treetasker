@@ -3,6 +3,22 @@ class TasksController < ApplicationController
   before_action :set_assignees, only: %i[new edit]
 
   # GET /tasks or /tasks.json
+  def task_do
+    @tasks = Task.where(priority: 1)
+  end
+
+  def task_decide
+    @tasks = Task.where(priority: 2)
+  end
+
+  def task_delegate
+    @tasks = Task.where(priority: 3)
+  end
+
+  def task_depository
+    @tasks = Task.where(priority: 4)
+  end
+
   def index
     # @tasks = Task.all
     @tasks_by_priority = Task.all.order(:priority).group_by(&:priority)
