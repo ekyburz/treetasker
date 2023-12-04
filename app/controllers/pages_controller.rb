@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    @garden = @user.garden
     @tasks_p1 = Task.where(priority: 1)
     @tasks_p2 = Task.where(priority: 2)
     @tasks_p3 = Task.where(priority: 3)
