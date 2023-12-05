@@ -1,101 +1,198 @@
-import { Turbo } from "@hotwired/turbo-rails";
+import * as TreeDo from "./treeDo";
+import * as TreeDecide from "./treeDecide";
+import * as TreeDelegate from "./treeDelegate";
 
 document.addEventListener("turbo:load", function () {
   const trees = [];
 
-  setTimeout(function () {
-    const container = document.querySelector(".canvas-container");
-    const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight;
-    let treeCount = parseInt(container.dataset.treeCount, 10);
+  const container = document.querySelector(".canvas-container");
+  const isShowPage = container.classList.contains("show-page");
+  const containerWidth = container.clientWidth;
+  const containerHeight = container.clientHeight;
+  let treeCountDo = parseInt(container.dataset.treeCountDo, 10) || 0;
+  let treeCountDecide = parseInt(container.dataset.treeCountDecide, 10) || 0;
+  let treeCountDelegate =
+    parseInt(container.dataset.treeCountDelegate, 10) || 0;
+  let treeCountDepository =
+    parseInt(container.dataset.treeCountDepository, 10) || 0;
+  let treeCount =
+    treeCountDo + treeCountDecide + treeCountDelegate + treeCountDepository;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      containerWidth / containerHeight,
-      0.1,
-      1000
-    );
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    containerWidth / containerHeight,
+    0.1,
+    1000
+  );
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas: document.getElementById("myCanvas"),
-      alpha: true,
-    });
-    renderer.setSize(containerWidth, containerHeight);
-    renderer.setClearColor(0xffffff, 0);
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById("myCanvas"),
+    alpha: true,
+  });
+  renderer.setSize(containerWidth, containerHeight);
+  renderer.setClearColor(0xffffff, 0);
 
-    const createTree = () => {
-      const trunkGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1, 12);
-      const trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8b4513 });
-      const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+  const checkForCollisions = (newTreeGroup, existingTrees) => {
+    for (const existingTree of existingTrees) {
+      const distance = newTreeGroup.position.distanceTo(
+        existingTree.treeGroup.position
+      );
+      if (distance < 1.5) {
+        return true;
+      }
+    }
+    return false;
+  };
 
-      const leavesGeometry = new THREE.ConeGeometry(0.8, 1.5, 12);
-      const leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x1cb41c });
-      const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
+  const createTreeDo = () => {
+    const { trunk, leaves, treeGroup } = TreeDo.createTreeDo();
 
-      const treeGroup = new THREE.Group();
+    let collisionDetected = true;
+    let attempts = 0;
 
-      trunk.position.y = 0.5;
-      leaves.position.y = 1.5;
-
-      treeGroup.add(trunk);
-      treeGroup.add(leaves);
-
-      const checkForCollisions = () => {
-        for (const existingTree of trees) {
-          const distance = treeGroup.position.distanceTo(
-            existingTree.treeGroup.position
-          );
-          if (distance < 1.5) {
-            return true;
-          }
-        }
-        return false;
-      };
-
-      let collisionDetected = true;
-      let attempts = 0;
-
-      while (collisionDetected && attempts < 10) {
-        let randomY = Math.random() * (-4 - -1.5) + -1.5;
-        let randomX = Math.random() * (9 - -5) + -7;
-        if (treeCount == 1) {
-          randomY = -1.5;
-          randomX = 0;
-        }
-        treeGroup.position.y = randomY;
-        treeGroup.position.x = randomX;
-
-        collisionDetected = checkForCollisions();
-        attempts++;
+    while (collisionDetected && attempts < 10) {
+      let randomY = Math.random() * (-4 - -1.5) + -1.5;
+      let randomX = Math.random() * (9 - -5) + -7;
+      if (isShowPage && trees.length === 0) {
+        randomY = -1.5;
+        randomX = 0;
       }
 
-      scene.add(treeGroup);
-      trees.push({ treeGroup, trunk, leaves });
+      treeGroup.position.y = randomY;
+      treeGroup.position.x = randomX;
+      let scale = 1 / (0.7 + treeCount * 0.05);
+      treeGroup.scale.set(scale, scale, scale);
 
-      return { trunk, leaves };
-    };
-
-    for (let i = 0; i < treeCount; i++) {
-      createTree();
+      collisionDetected = checkForCollisions(treeGroup, trees);
+      attempts++;
     }
 
-    camera.position.z = 6;
-    if (treeCount == 1) {
-      camera.position.z = 3;
+    scene.add(treeGroup);
+    trees.push({ treeGroup, trunk, leaves });
+
+    return { trunk, leaves };
+  };
+
+  const createTreeDecide = () => {
+    const {
+      leaveDark,
+      leaveLight,
+      squareLeave01,
+      squareLeave02,
+      squareLeave03,
+      treeGroup,
+    } = TreeDecide.createTreeDecide();
+
+    let collisionDetected = true;
+    let attempts = 0;
+
+    while (collisionDetected && attempts < 10) {
+      let randomY = Math.random() * (-4 - -1.5) + -1.5;
+      let randomX = Math.random() * (9 - -5) + -7;
+      if (trees.length === 0) {
+        randomY = -1.5;
+        randomX = 0;
+      }
+
+      treeGroup.position.y = randomY;
+      treeGroup.position.x = randomX;
+      let scale = 1 / (1 + treeCount * 0.05);
+      treeGroup.scale.set(scale, scale, scale);
+
+      collisionDetected = checkForCollisions(treeGroup, trees);
+      attempts++;
     }
 
-    const animate = function () {
-      requestAnimationFrame(animate);
+    scene.add(treeGroup);
+    trees.push({
+      leaveDark,
+      leaveLight,
+      squareLeave01,
+      squareLeave02,
+      squareLeave03,
+      treeGroup,
+    });
 
-      trees.forEach(({ trunk, leaves }) => {
-        trunk.rotation.y += 0.01;
-        leaves.rotation.y += 0.01;
-      });
-
-      renderer.render(scene, camera);
+    return {
+      leaveDark,
+      leaveLight,
+      squareLeave01,
+      squareLeave02,
+      squareLeave03,
     };
+  };
 
-    animate();
-  }, 100);
+  // const createTreeDelegate = () => {
+  //   const {
+  //     leaveDark,
+  //     leaveLight,
+  //     squareLeave01,
+  //     squareLeave02,
+  //     squareLeave03,
+  //     treeGroup,
+  //   } = TreeDecide.createTreeDelegate();
+
+  //   let collisionDetected = true;
+  //   let attempts = 0;
+
+  //   while (collisionDetected && attempts < 10) {
+  //     let randomY = Math.random() * (-4 - -1.5) + -1.5;
+  //     let randomX = Math.random() * (9 - -5) + -7;
+  //     if (trees.length === 0) {
+  //       randomY = -1.5;
+  //       randomX = 0;
+  //     }
+
+  //     treeGroup.position.y = randomY;
+  //     treeGroup.position.x = randomX;
+  //     let scale = 1 / (1 + treeCount * 0.05);
+  //     treeGroup.scale.set(scale, scale, scale);
+
+  //     collisionDetected = checkForCollisions(treeGroup, trees);
+  //     attempts++;
+  //   }
+
+  //   scene.add(treeGroup);
+  //   trees.push({
+  //     trunk,
+  //     leaves,
+  //     apple,
+  //     treeGroup,
+  //   });
+
+  //   return {
+  //     trunk,
+  //     leaves,
+  //     apple,
+  //   };
+  // };
+
+  // for (let i = 0; i < treeCountDelegate; i++) {
+  //   createTreeDelegate();
+  // }
+
+  for (let i = 0; i < treeCountDo; i++) {
+    createTreeDo();
+  }
+  for (let i = 0; i < treeCountDecide; i++) {
+    createTreeDecide();
+  }
+
+  camera.position.z = 6;
+  if (treeCount == 1) {
+    camera.position.z = 3;
+  }
+
+  const animate = function () {
+    requestAnimationFrame(animate);
+
+    trees.forEach(({ treeGroup }) => {
+      treeGroup.rotation.y += 0.01;
+    });
+
+    renderer.render(scene, camera);
+  };
+
+  animate();
 });

@@ -1,5 +1,9 @@
 <%# <div data-update-canvas-scene="canvas"> %>
-  <div class="canvas-container w-100 mt-5" data-tree-count="<%= @filtered_tasks.count %>">
+  <div class="canvas-container w-100 mt-5"
+  data-tree-count-do="<%= @filtered_tasks.where(name: "Do Tree").count %>"
+  data-tree-count-decide="<%= @filtered_tasks.where(name: "Decide Tree").count %>"
+  data-tree-count-delegate="<%= @filtered_tasks.where(name: "Delegate Tree").count %>"
+  data-tree-count-depository="<%= @filtered_tasks.where(name: "Depository Tree").count %>">
     <div class="col">
       <canvas id="myCanvas" class="border p-3 w-100"></canvas>
     </div>
