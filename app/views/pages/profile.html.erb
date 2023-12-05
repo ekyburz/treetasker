@@ -35,22 +35,18 @@
     </div>
   </div>
 
-<div class="col-7 status-badges m-0">
-  <% statuses = ['Novice', 'Intermediate', 'Advanced', 'Expert', 'Master', 'Legend', 'God', 'Immortal'] %>
-  <% user_status_index = @user.status ? statuses.map(&:downcase).index(@user.status.downcase) : nil %>
-  <% statuses.each_with_index do |status, index| %>
-    <div class="badge-container <%= 'unlocked' if user_status_index.present? && (user_status_index >= index) %>">
-      <i class="fa-solid fa-star <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
-      <span class="badge-label"><%= status %></span>
-    </div>
-  <% end %>
-</div>
+  <div class="col-7 status-badges m-0">
+    <% statuses = ['Novice', 'Intermediate', 'Advanced', 'Expert', 'Master', 'Legend', 'God', 'Immortal'] %>
+    <% user_status_index = @user.status ? statuses.map(&:downcase).index(@user.status.downcase) : nil %>
+    <% statuses.each_with_index do |status, index| %>
+      <div class="badge-container <%= 'unlocked' if user_status_index.present? && (user_status_index >= index) %>">
+        <i class="fa-solid fa-star <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
+        <span class="badge-label"><%= status %></span>
+      </div>
+    <% end %>
+  </div>
 
-
-
-<%# Handling Image Update with a modal %>
-<div>
-  <!-- Modal -->
+  <%# Handling Image Update with a modal %>
   <div class="modal fade" id="changeProfilePictureModal" tabindex="-1" role="dialog" aria-labelledby="changeProfilePictureModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -78,5 +74,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
