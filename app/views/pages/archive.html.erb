@@ -16,7 +16,7 @@
               <%= render partial: "tasks/task", locals: { task: task } %>
               <p class="mt-2 mb-0">
                 <%= link_to "Details", task, class: "btn btn-success text-decoration-none" %>
-                <%= link_to 'Archive this task', task, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+                <%= link_to 'Delete this task', task, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
               </p>
             </div>
           </div>
