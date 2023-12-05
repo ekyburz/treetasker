@@ -1,34 +1,51 @@
-<div class="container bg-light rounded-4">
-  <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+<div class="wrapper">
+  <div class="title-and-button d-flex justify-content-between align-items-center mt-3 mb-3">
     <h2><strong>My Profile Page</strong></h2>
     <a href="/" class="btn btn-success">Home</a>
   </div>
 
-  <div class="user-profile mt-3 mb-4 d-flex align-items-start">
-    <!-- Profile Picture -->
+<div class="container d-flex bg-light rounded-4 p-3 border border-dark">
+  <div class="col-5 user-profile mt-3 mb-4">
     <div class="profile-picture me-3">
       <% if @user.photo.key? %>
         <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
+        <span class="camera" style="cursor: pointer;">
+          <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal"></i>
+        </span>
       <% else %>
         <i class="fa-regular fa-user fa-4x"></i>
+        <span class="camera-for-icon" style="cursor: pointer;">
+          <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal"></i>
+        </span>
       <% end %>
-      <span class="camera" style="cursor: pointer;">
-        <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal"></i>
-      </span>
     </div>
 
-    <!-- User Details -->
     <div class="user-details">
       <div>
-        <%= @user.first_name %> <%= @user.last_name %>
-        <a href="/users/edit" class="icon-link text-dark ms-2 text-decoration-none">
-          <i class="fa-regular fa-pen-to-square"></i>
-        </a>
+        <p class="mb-1">
+          <%= @user.first_name %> <%= @user.last_name %>
+          <a href="/users/edit" class="icon-link text-dark ms-2 text-decoration-none">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </a>
+        </p>
+        <p>Gardener Status: <strong><%= @user.status.capitalize %></strong></p>
       </div>
-      <div class="user-status">Gardener Status: <strong><%= @user.status.capitalize %></strong></div>
+      <a href="/archive" class="btn btn-success">Archive</a>
     </div>
   </div>
-    <a href="/archive" class="btn btn-success mb-3 mt-3">Archive</a>
+
+<div class="col-7 status-badges m-0">
+  <% statuses = ['Novice', 'Intermediate', 'Advanced', 'Expert', 'Master', 'Legend', 'God', 'Immortal'] %>
+  <% user_status_index = @user.status ? statuses.map(&:downcase).index(@user.status.downcase) : nil %>
+  <% statuses.each_with_index do |status, index| %>
+    <div class="badge-container <%= 'unlocked' if user_status_index.present? && (user_status_index >= index) %>">
+      <i class="fa-solid fa-star <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
+      <span class="badge-label"><%= status %></span>
+    </div>
+  <% end %>
+</div>
+
+
 
 <%# Handling Image Update with a modal %>
 <div>

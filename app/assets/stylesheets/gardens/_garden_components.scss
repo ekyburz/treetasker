@@ -5,3 +5,14 @@
   background-position: center center;
   background-size: cover;
 }
+
+.btn-garden {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  margin-left: calc(var(--bs-border-width) * -1);
+}
+
+.select-garden {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
