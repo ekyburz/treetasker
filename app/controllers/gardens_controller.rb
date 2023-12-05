@@ -5,9 +5,9 @@ class GardensController < ApplicationController
     date_filter = params[:date_filter]
 
     case date_filter
-    when 'Day'
-      start_date = Date.today.beginning_of_day
-      end_date = Date.today.end_of_day
+    when 'All Time'
+      start_date = nil
+      end_date = nil
     when 'Week'
       start_date = Date.today.beginning_of_week
       end_date = Date.today.end_of_week
@@ -18,8 +18,8 @@ class GardensController < ApplicationController
       start_date = Date.today.beginning_of_year
       end_date = Date.today.end_of_year
     else
-      start_date = nil
-      end_date = nil
+      start_date = Date.today.beginning_of_day
+      end_date = Date.today.end_of_day
     end
     @filtered_tasks = @garden.trees.where(created_at: start_date..end_date)
   end

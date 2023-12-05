@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row w-100 justify-content-between">
     <div class="col-9">
-      <h2><%= @user.first_name.pluralize %>' Garden!</h2>
+      <h2><%= @user.first_name.pluralize %> Garden!</h2>
       <h4>Gardener Status: <strong><%= @user.status.capitalize %></strong></h4>
     </div>
     <div class="col-3 pt-2 pe-0">
@@ -29,9 +29,9 @@
           <div class="row justify-content-center" data-controller="update-canvas-scene">
             <%= form_with url: gardens_path, method: :get, class: "d-flex", data: { "update-canvas-scene-target": "form" } do %>
             <%= select_tag :date_filter,
-            options_for_select(["Day", "Week", "Month", "Year"], params[:date_filter]),
+            options_for_select(["Week", "Month", "Year", "All Time"], params[:date_filter]),
             class: "form-control",
-            prompt: "Select Date Filter",
+            prompt: "Today",
             data: { "update-canvas-scene-target": "select" } %>
             <%= submit_tag "Search", name: "", class: "btn btn-success" %>
             <% end %>
