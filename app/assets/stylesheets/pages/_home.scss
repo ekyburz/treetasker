@@ -2,6 +2,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: $teal-050;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6, body p, body span {
+  font-family: $treetasker-family;
 }
 
 .home-nav p {
@@ -67,17 +72,17 @@ body {
 }
 
 .home-tasks .priority-do {
-  background-color: #90EE90;
+  background-color: $teal-300;
 }
 
 .home-tasks .priority-decide {
-  background-color: #ADD8E6;
+  background-color: $blue-grey-300;
 }
 
 .home-tasks .priority-delegate {
-  background-color: #F08080;
+  background-color: $red-300;
 }
 
 .home-tasks .priority-depository {
-  background-color: #D3D3D3;
+  background-color: $yellow-300;
 }
