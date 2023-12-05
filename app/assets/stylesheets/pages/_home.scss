@@ -1,5 +1,7 @@
-.main {
-  padding-bottom: 115px;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .home-nav p {
