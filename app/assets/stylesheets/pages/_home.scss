@@ -9,6 +9,14 @@ body h1, body h2, body h3, body h4, body h5, body h6, body p, body span {
   font-family: $treetasker-family;
 }
 
+body h1 {
+  color: $teal-100;
+}
+
+body p, body span {
+  color: $blue-grey-900;
+}
+
 .home-nav p {
   padding: 5px 0 0 0;
   margin: 0;
@@ -27,23 +35,23 @@ body h1, body h2, body h3, body h4, body h5, body h6, body p, body span {
   padding-top: 19px;
 }
 
-.home-nav li.priority-do a:hover {
-  color: #90EE90 !important;
+.home-nav li.priority-do a:hover, .home-nav li.priority-do p:hover {
+  color: $teal-300 !important;
   font-weight: bold;
 }
 
-.home-nav li.priority-decide a:hover {
-  color: #ADD8E6 !important;
+.home-nav li.priority-decide a:hover, .home-nav li.priority-decide p:hover {
+  color: $blue-grey-300 !important;
   font-weight: bold;
 }
 
-.home-nav li.priority-delegate a:hover {
-  color: #F08080 !important;
+.home-nav li.priority-delegate a:hover, .home-nav li.priority-delegate p:hover {
+  color: $red-300 !important;
   font-weight: bold;
 }
 
-.home-nav li.priority-depository a:hover {
-  color: #D3D3D3 !important;
+.home-nav li.priority-depository a:hover, .home-nav li.priority-depository p:hover {
+  color: $yellow-300 !important;
   font-weight: bold;
 }
 
@@ -52,7 +60,7 @@ body h1, body h2, body h3, body h4, body h5, body h6, body p, body span {
 }
 
 .home-nav, .home-tasks, .home-stats, .home-tasks .col {
-  border: 2px solid;
+  border: 2px solid $blue-grey-900;
   border-radius: 10px
 }
 
@@ -64,7 +72,7 @@ body h1, body h2, body h3, body h4, body h5, body h6, body p, body span {
 
 .home-tasks a, a.tt-link {
   text-decoration: none;
-  color: #000000;
+  color: $blue-grey-900;
 }
 
 .home-tasks a:hover, a.tt-link:hover {

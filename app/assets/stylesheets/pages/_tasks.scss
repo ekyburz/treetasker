@@ -6,6 +6,14 @@
   float: right;
 }
 
+.card-header {
+  background-color: $blue-grey-100;
+}
+
+.card-body {
+  background-color: $blue-grey-050;
+}
+
 .card-header p {
 font-weight: bold;
 font-style: italic;

@@ -1,6 +1,5 @@
 .header {
   background-color: $teal-900;
-  color: $teal-100;
 }
 
 header h1 {
@@ -11,4 +10,5 @@ header h1 {
 header .greeting {
   display: inline;
   font-size: 1.1rem;
+  color: $blue-grey-100;
 }
