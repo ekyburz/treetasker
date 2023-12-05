@@ -1,0 +1,20 @@
+<h3 class="card-title"><%= task.name %></h3>
+<% if task.details? %>
+  <h5>Details</h5>
+  <p class="card-text"><%= task.details %></p>
+<% end %>
+<% if task.priority == 3 %>
+  <div>
+    <h5>Assignee Details</h5>
+    <p><strong>Name:</strong> <%= task.assignee.first_name %> <%= task.assignee.last_name %>
+    <br><strong>Email:</strong> <%= task.assignee.email %></p>
+  </div>
+<% end %>
+<% if task.priority == 2 %>
+  <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
+<% end %>
+<% if task.completed? %>
+  <p><i class="fa-regular fa-square-check fa-xl"></i> Completed!</p>
+<% else %>
+  <p><i class="fa-regular fa-rectangle-xmark fa-xl"></i> Completed?</p>
+<% end %>

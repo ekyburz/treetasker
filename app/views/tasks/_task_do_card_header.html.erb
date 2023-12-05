@@ -1,0 +1,11 @@
+<div class="card-header card-header-priority">
+  <% if task.priority == 1 %>
+    <p><%= link_to "Details", task, class: "tt-link" %></p>
+  <% elsif task.priority == 2 %>
+    <p>DECIDE</p>
+  <% elsif task.priority == 3 %>
+    <p>DELEGATE</p>
+  <% elsif task.priority == 4 %>
+    <p>DEPOSITORY</p>
+  <% end %>
+</div>
