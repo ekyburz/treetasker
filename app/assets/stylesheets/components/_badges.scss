@@ -1,0 +1,58 @@
+.badge-container {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 5px;
+  text-align: center;
+}
+
+.status-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 20px;
+  flex: 1;
+}
+
+.fa-star, .badge-label {
+  display: block;
+  margin: auto;
+}
+
+.fa-star {
+  font-size: 25px;
+  color: #ffd700;
+}
+
+
+.user-profile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+.fa-solid.fa-star {
+  color: grey;
+}
+
+.fa-solid.fa-star.achieved {
+  color: rgb(249, 242, 31);
+}
+
+.main-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.left-side {
+  flex: 1;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between; /* Aligns children to each side */
+  align-items: flex-start; /* Aligns children to the top */
+  width: 100%; /* Ensure the container spans the full width */
+}
