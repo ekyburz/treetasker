@@ -12,7 +12,7 @@
   <div>
     <% @tasks.each do |task| %>
       <div class="col mb-3">
-        <div class="card-body">
+        <div class="card-body rounded-4">
           <%= render partial: 'tasks/task_priority', locals: { task: task } %>
         </div>
       </div>

@@ -10,7 +10,7 @@
   <%# button_to "Destroy this task", @task, method: :delete, class: "btn btn-warning ms-3" %>
   </div>
 
-  <div class="canvas-container col show-page"
+  <div class="canvas-container col show-page rounded-4"
     <% if @task.priority == 1 %>
       data-tree-count-do="1"
     <% elsif @task.priority == 2 %>
@@ -21,7 +21,7 @@
     data-tree-count-depository="1">
     <% end %>
       <div class="col">
-        <canvas id="myCanvas" class="border p-3" style="height: 70vh; width: 30vh;"></canvas>
+        <canvas id="myCanvas" class="border rounded-4 p-3" style="height: 70vh; width: 30vh;"></canvas>
       </div>
   </div>
 </div>
