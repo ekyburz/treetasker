@@ -1,6 +1,6 @@
 <div class="card-header card-header-priority">
   <p>
-    <%= link_to '<i class="fa-regular fa-eye"></i> Details'.html_safe, task, class: "tt-link" %> |
-    <%= link_to '<i class="fa-regular fa-eye"></i> Delete'.html_safe, task, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this task?"}, class: "tt-link" %>
+    <%= link_to '<i class="fa-regular fa-eye"></i> Details'.html_safe, task, class: "tt-link edit" %> <span style="font-style: normal;">|</span>
+    <%= link_to '<i class="fa-regular fa-trash-can"></i> Delete'.html_safe, task, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this task?"}, class: "tt-link delete" %>
   </p>
 </div>
