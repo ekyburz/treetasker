@@ -10,7 +10,7 @@
     <div class="profile-picture me-3">
       <% if @user.photo.key? %>
         <div class="avatar-bordered">
-          <%= cl_image_tag @user.photo.key, class: "" %>
+          <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
           <span class="camera" style="cursor: pointer;">
             <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal"></i>
           </span>
@@ -31,18 +31,18 @@
             <i class="fa-regular fa-pen-to-square"></i>
           </a>
         </p>
-        <p>Gardener Status: <strong><%= @user.status %></strong></p>
+        <p>Gardener Status: <strong class="status-green"><%= @user.status %></strong></p>
       </div>
       <a href="/archive" class="btn btn-success">Archive</a>
     </div>
   </div>
 
   <div class="col-7 status-badges m-0">
-    <% statuses = ['Green Thumb', 'Sprouts Scouts', 'Floral Engineer', 'Plant Scientist', 'Tree Whisperer', 'Forest Fairy', 'Wildlife Wizard', 'Landscape Legend'] %>
+    <% statuses = ['Green Thumb', 'Sprouts Scout', 'Floral Engineer', 'Plant Scientist', 'Tree Whisperer', 'Forest Fairy', 'Wildlife Wizard', 'Landscape Legend'] %>
     <% user_status_index = @user.status ? statuses.map(&:downcase).index(@user.status.downcase) : nil %>
     <% statuses.each_with_index do |status, index| %>
       <div class="badge-container <%= 'unlocked' if user_status_index.present? && (user_status_index >= index) %>">
-        <i class="fa-solid fa-seedling <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
+        <i class="fa-solid fa-seedling level-<%= index + 1 %> <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
         <span class="badge-label"><%= status %></span>
       </div>
     <% end %>
