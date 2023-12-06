@@ -5,20 +5,22 @@
   <%= link_to "Home", root_path, class: "btn btn-success text-decoration-none" %>
 </div>
 
-<div class="container bg-light rounded-4">
+<div class="container">
   <% @tasks_by_priority.each do |priority, tasks| %>
-    <h3><%= Task::PRIORITIES[priority] %></h3>
+    <% if Task::PRIORITIES[priority] == "Do" %>
+      <h3><span class="text-success"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+    <% elsif Task::PRIORITIES[priority] == "Decide" %>
+      <h3><span class="text-primary"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+    <% elsif Task::PRIORITIES[priority] == "Delegate" %>
+      <h3><span class="text-danger"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+    <% elsif Task::PRIORITIES[priority] == "Depository" %>
+      <h3><span class="text-secondary"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+    <% end %>
     <div class="row">
       <% tasks.each do |task| %>
-        <div class="col-12 mb-3">
-          <div class="card rounded-4">
-            <div class="card-body">
-              <%= render partial: "tasks/task", locals: { task: task } %>
-              <p class="mt-2 mb-0">
-                <%= link_to "Details", task, class: "btn btn-success text-decoration-none" %>
-                <%= link_to 'Delete this task', task, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
-              </p>
-            </div>
+        <div class="col mb-3">
+          <div class="card-body">
+            <%= render partial: "tasks/task_archive", locals: { task: task } %>
           </div>
         </div>
       <% end %>

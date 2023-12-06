@@ -5,7 +5,7 @@
   <%= link_to "Home", root_path, class: "btn btn-success text-decoration-none" %>
 </div>
 
-<div class="container bg-light rounded-4">
+<div class="container">
   <% @tasks_by_priority.each do |priority, tasks| %>
     <% if Task::PRIORITIES[priority] == "Do" %>
       <h3><span class="text-success"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
@@ -20,13 +20,8 @@
     <div class="row">
       <% tasks.each do |task| %>
         <div class="col-12 mb-3">
-          <div class="card rounded-4">
-            <div class="card-body">
-              <%= render partial: "task", locals: { task: task } %>
-              <p class="mt-2 mb-0">
-                <%= link_to "Details", task, class: "btn btn-success text-decoration-none" %>
-              </p>
-            </div>
+          <div class="card-body">
+            <%= render partial: "task_priority", locals: { task: task } %>
           </div>
         </div>
       <% end %>

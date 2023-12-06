@@ -1,0 +1,8 @@
+<div id="<%= dom_id task %>">
+  <div class="card">
+    <%= render partial: 'tasks/task_archive_card_header', locals: { task: task } %>
+    <div class="card-body">
+      <%= render partial: 'tasks/task_card_body', locals: { task: task } %>
+    </div>
+  </div>
+</div>
