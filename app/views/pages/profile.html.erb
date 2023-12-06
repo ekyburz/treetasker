@@ -9,10 +9,12 @@
   <div class="col-5 user-profile mt-3 mb-4">
     <div class="profile-picture me-3">
       <% if @user.photo.key? %>
-        <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
-        <span class="camera" style="cursor: pointer;">
-          <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal"></i>
-        </span>
+        <div class="avatar-bordered">
+          <%= cl_image_tag @user.photo.key, class: "" %>
+          <span class="camera" style="cursor: pointer;">
+            <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#changeProfilePictureModal"></i>
+          </span>
+        </div>
       <% else %>
         <i class="fa-regular fa-user fa-4x"></i>
         <span class="camera-for-icon" style="cursor: pointer;">
@@ -40,7 +42,7 @@
     <% user_status_index = @user.status ? statuses.map(&:downcase).index(@user.status.downcase) : nil %>
     <% statuses.each_with_index do |status, index| %>
       <div class="badge-container <%= 'unlocked' if user_status_index.present? && (user_status_index >= index) %>">
-        <i class="fa-solid fa-star <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
+        <i class="fa-solid fa-seedling <%= 'achieved' if user_status_index.present? && (user_status_index >= index) %>"></i>
         <span class="badge-label"><%= status %></span>
       </div>
     <% end %>

@@ -28,11 +28,13 @@
       </li>
       <li class="profile">
         <%= link_to profile_path(), class: "link-body-emphasis text-decoration-none" do %>
-          <% if @user.photo.key? %>
-            <%= cl_image_tag @user.photo.key, class: "avatar-nav" %>
-          <% else %>
-            <i class="fa-regular fa-user fa-2xl"></i>
-          <% end %>
+          <div class="avatar-nav">
+            <% if @user.photo.key? %>
+              <%= cl_image_tag @user.photo.key %>
+            <% else %>
+              <i class="fa-regular fa-user fa-2xl"></i>
+            <% end %>
+          </div>
           <p>PROFILE</p>
         <% end %>
       </li>
