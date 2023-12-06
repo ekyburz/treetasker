@@ -20,7 +20,7 @@
     <div class="row">
       <% tasks.each do |task| %>
         <div class="col-12 mb-3">
-          <div class="card-body">
+          <div class="card-body rounded-4">
             <%= render partial: "task_priority", locals: { task: task } %>
           </div>
         </div>

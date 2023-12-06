@@ -6,24 +6,25 @@
 </div>
 
 <div class="container">
-  <% @tasks_by_priority.each do |priority, tasks| %>
-    <% if Task::PRIORITIES[priority] == "Do" %>
-      <h3><span class="text-success"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
-    <% elsif Task::PRIORITIES[priority] == "Decide" %>
-      <h3><span class="text-primary"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
-    <% elsif Task::PRIORITIES[priority] == "Delegate" %>
-      <h3><span class="text-danger"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
-    <% elsif Task::PRIORITIES[priority] == "Depository" %>
-      <h3><span class="text-secondary"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
-    <% end %>
-    <div class="row">
-      <% tasks.each do |task| %>
-        <div class="col mb-3">
-          <div class="card-body">
-            <%= render partial: "tasks/task_archive", locals: { task: task } %>
-          </div>
-        </div>
+  <div class="row">
+    <% @tasks_by_priority.each do |priority, tasks| %>
+      <% if Task::PRIORITIES[priority] == "Do" %>
+        <h3><span class="text-success"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+      <% elsif Task::PRIORITIES[priority] == "Decide" %>
+        <h3><span class="text-primary"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+      <% elsif Task::PRIORITIES[priority] == "Delegate" %>
+        <h3><span class="text-danger"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
+      <% elsif Task::PRIORITIES[priority] == "Depository" %>
+        <h3><span class="text-secondary"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>
       <% end %>
-    </div>
-  <% end %>
+
+      <div class="col">
+        <% tasks.each do |task| %>
+            <div class="card-body rounded-4 mb-3">
+              <%= render partial: "tasks/task_archive", locals: { task: task } %>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

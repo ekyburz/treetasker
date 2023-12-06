@@ -44,7 +44,11 @@
   <div class="row">
     <div class="col m-3 p-3 priority-do">
       <h4><strong>D</strong>o</h4>
-      <p><em>Task to do NOW!</em></p>
+      <% if @tasks_p1.count == 1 %>
+        <p><em>Task to do NOW!</em></p>
+      <% else %>
+        <p><em>Tasks to do NOW!</em></p>
+      <% end %>
       <hr>
       <ul>
         <% @tasks_p1.each do |task| %>
@@ -54,7 +58,11 @@
     </div>
     <div class="col m-3 p-3 priority-decide">
       <h4><strong>D</strong>ecide</h4>
-      <p><em>Upcoming Task</em></p>
+      <% if @tasks_p2.count == 1 %>
+        <p><em>Upcoming Task</em></p>
+      <% else %>
+        <p><em>Upcoming Tasks</em></p>
+      <% end %>
       <hr>
       <ul>
         <% @tasks_p2.each do |task| %>
@@ -66,7 +74,11 @@
   <div class="row">
     <div class="col mx-3 mb-3 p-3 priority-delegate">
       <h4><strong>D</strong>elegate</h4>
-      <p><em>Task to delegate</em></p>
+      <% if @tasks_p3.count == 1 %>
+        <p><em>Task to delegate</em></p>
+      <% else %>
+        <p><em>Tasks to delegate</em></p>
+      <% end %>
       <hr>
       <ul>
         <% @tasks_p3.each do |task| %>
@@ -76,7 +88,11 @@
     </div>
     <div class="col mx-3 mb-3 p-3 priority-depository">
       <h4><strong>D</strong>epository</h4>
-      <p><em>Your oldest Task</em></p>
+      <% if @tasks_p4.count == 1 %>
+        <p><em>Your oldest Task</em></p>
+      <% else %>
+        <p><em>Your oldest Tasks</em></p>
+      <% end %>
       <hr>
       <ul>
         <% @tasks_p4.each do |task| %>
