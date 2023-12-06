@@ -1,64 +1,33 @@
 export const createTreeDelegate = () => {
   // Trunk
-  const trunkGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1, 32, 1, false);
-  const trunkMaterial = new THREE.MeshStandardMaterial({
-    color: 0x00aae4,
-    roughness: 1,
-    metalness: 0,
-    emissive: 0x00aae4,
-    envMapIntensity: 1,
-    blendColor: 0,
-  });
+  const trunkGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1, 12);
+  const trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8b4513 });
   const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
-  trunk.name = "Cylinder";
 
   // Leaves
-  const leavesGeometry = new THREE.SphereGeometry(
-    1,
-    32,
-    16,
-    0,
-    6.283185307179586,
-    0,
-    3.141592653589793
-  );
-  const leavesMaterial = new THREE.MeshStandardMaterial({
-    color: 0x7f7f7f,
-    roughness: 1,
-    metalness: 0,
-    emissive: 0xbb8080,
-    envMapIntensity: 1,
-    blendColor: 0,
-  });
+  const leavesGeometry = new THREE.SphereGeometry(1, 12, 8);
+  const leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x1cb41c });
   const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
-  leaves.name = "leaves";
+  leaves.position.y = 1.5;
 
-  // Apple
-  const appleGeometry = new THREE.SphereGeometry(
-    0.1,
-    32,
-    16,
-    0,
-    6.283185307179586,
-    0,
-    3.141592653589793
-  );
-  const appleMaterial = new THREE.MeshStandardMaterial({
-    color: 0xb60520,
-    roughness: 1,
-    metalness: 0,
-    emissive: 0xb60520,
-    envMapIntensity: 1,
-    blendColor: 0,
-  });
-  const apple = new THREE.Mesh(appleGeometry, appleMaterial);
-  apple.name = "apple";
+  // Apples
+  const apples = new THREE.Group();
+  const appleGeometry = new THREE.SphereGeometry(0.3, 8, 8);
+  const appleMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
 
-  // Tree Group
+  for (let i = 0; i < 5; i++) {
+    const apple = new THREE.Mesh(appleGeometry, appleMaterial);
+    apple.position.y = 1.2;
+    apple.position.x = Math.sin((i / 5) * Math.PI * 2) * 0.8;
+    apple.position.z = Math.cos((i / 5) * Math.PI * 2) * 0.8;
+    apples.add(apple);
+  }
+
+  // Tree group
   const treeGroup = new THREE.Group();
   treeGroup.add(trunk);
   treeGroup.add(leaves);
-  treeGroup.add(apple);
+  treeGroup.add(apples);
 
-  return { trunk, leaves, apple, treeGroup };
+  return { trunk, leaves, apples, treeGroup };
 };
