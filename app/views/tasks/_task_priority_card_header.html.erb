@@ -1,3 +1,15 @@
 <div class="card-header card-header-priority rounded-top-4">
-  <p><%= link_to '<i class="fa-regular fa-eye"></i> Details'.html_safe, task, class: "tt-link" %></p>
+  <div class="card-header-info">
+    <% if task.completed %>
+      <p>Status: Done</p>
+    <% else %>
+      <p>Status: Open – Due on <%= task.deadline.strftime('%a, %b %e, %Y at %H:%M') %></p>
+    <% end %>
+  </div>
+  <div class="card-header-action">
+    <p>
+      <%= link_to '<i class="fa-regular fa-eye"></i> Details'.html_safe, task, class: "tt-link edit" %> <span style="font-style: normal;">|</span>
+      <%= link_to '<i class="fa-solid fa-list-check"></i> Complete'.html_safe, task, class: "tt-link complete" %>
+    </p>
+  </div>
 </div>

@@ -25,11 +25,22 @@ float: right;
   font-weight: normal;
   font-style: italic;
   margin: 0;
-  float: right;
   }
+
+.card-header-info {
+  float: left;
+}
+
+.card-header-action {
+  float: right;
+}
 
 a.edit {
   color: $teal-500;
+}
+
+a.complete {
+  color: $blue-500;
 }
 
 a.delete {
