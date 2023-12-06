@@ -6,7 +6,7 @@ export const createTreeDelegate = () => {
 
   // Leaves
   const leavesGeometry = new THREE.SphereGeometry(1, 12, 8);
-  const leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x537708 });
+  const leavesMaterial = new THREE.MeshBasicMaterial({ color: 0x1cb41c });
   const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
   leaves.position.y = 1.5;
 
