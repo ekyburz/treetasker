@@ -2,7 +2,24 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
+
+.profile {
+  display: flex;
+  flex-direction: column; // Arranges children vertically
+  align-items: center; // Centers children horizontally in the container
+  justify-content: center; // Adjusts children's spacing vertically, if needed
+  text-align: center;
+}
+
 
 .avatar-nav:hover {
   width: 32px;
@@ -18,13 +35,23 @@
   border-radius: 50%;
 }
 
+
 .avatar-bordered {
   width: 128px;
   height: 128px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: #1EDD88 1px solid;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
+
 
 .profile-picture {
   position: relative;
