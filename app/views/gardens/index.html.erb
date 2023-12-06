@@ -25,9 +25,15 @@
       </div>
       <div class="col">
         <div class="p-3 bg-white border">
-          <h4>Filter by:</h4>
+          <div style="display: flex; justify-content: space-between;">
+            <h4>Filter by:</h4>
+            <div>
+              <%= link_to "Clear Filter ", "#", class: "tt-link btn-clear-filter mb-3", onclick: "clearFilter()" %>
+              <i class="fa-solid fa-filter-circle-xmark"></i>
+            </div>
+          </div>
           <div class="row justify-content-center" data-controller="update-canvas-scene">
-            <%= form_with url: gardens_path, method: :get, class: "d-flex", data: { "update-canvas-scene-target": "form" } do %>
+            <%= form_with url: gardens_path, method: :get, class: "d-flex", id: "garden-filter-form" , data: { "update-canvas-scene-target": "form" } do %>
             <%= select_tag :date_filter,
             options_for_select(["Week", "Month", "Year", "All Time"], params[:date_filter]),
             class: "form-control select-garden",
@@ -43,3 +49,10 @@
 </div>
 
 <%= render "canvas", garden: @garden %>
+
+<script>
+  function clearFilter() {
+    document.querySelector('#date_filter').value = 'Today';
+    document.querySelector('form#garden-filter-form').submit();
+  }
+</script>

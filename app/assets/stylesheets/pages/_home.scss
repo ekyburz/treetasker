@@ -35,22 +35,22 @@ body p, body span {
   padding-top: 19px;
 }
 
-.home-nav li.priority-do a:hover, .home-nav li.priority-do p:hover {
+.home-nav li.priority-do:hover a, .home-nav li.priority-do:hover p {
   color: $teal-300 !important;
   font-weight: bold;
 }
 
-.home-nav li.priority-decide a:hover, .home-nav li.priority-decide p:hover {
+.home-nav li.priority-decide:hover a, .home-nav li.priority-decide:hover p {
   color: $blue-grey-300 !important;
   font-weight: bold;
 }
 
-.home-nav li.priority-delegate a:hover, .home-nav li.priority-delegate p:hover {
+.home-nav li.priority-delegate:hover a, .home-nav li.priority-delegate:hover p {
   color: $red-300 !important;
   font-weight: bold;
 }
 
-.home-nav li.priority-depository a:hover, .home-nav li.priority-depository p:hover {
+.home-nav li.priority-depository:hover a, .home-nav li.priority-depository:hover p {
   color: $yellow-300 !important;
   font-weight: bold;
 }
