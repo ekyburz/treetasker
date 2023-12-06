@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   after_create :create_garden
+  after_create :create_task
 
   validates :first_name, :last_name, presence: true
 
@@ -15,10 +16,22 @@ class User < ApplicationRecord
   has_many :trees, through: :garden
 
   has_one_attached :photo
-  
+
   private
 
   def create_garden
     Garden.create(user: self)
+  end
+
+  def create_task
+    task_params = {
+      name: 'Add a profile picture',
+      priority: 1,
+      creator_id: id,
+      assignee_id: id,
+      deadline: DateTime.current + 1.hour,
+      details: 'Upload a profile picture to make your account more personal!'
+    }
+    Task.create(task_params)
   end
 end

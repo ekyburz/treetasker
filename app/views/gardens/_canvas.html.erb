@@ -1,11 +1,22 @@
-<%# <div data-update-canvas-scene="canvas"> %>
-  <div class="canvas-container w-100 mt-5"
+<div class="canvas-container w-100 mt-5 "
   data-tree-count-do="<%= @filtered_tasks.where(name: "Do Tree").count %>"
   data-tree-count-decide="<%= @filtered_tasks.where(name: "Decide Tree").count %>"
   data-tree-count-delegate="<%= @filtered_tasks.where(name: "Delegate Tree").count %>"
   data-tree-count-depository="<%= @filtered_tasks.where(name: "Depository Tree").count %>">
-    <div class="col">
-      <canvas id="myCanvas" class="border p-3 w-100"></canvas>
+    <div class="col" style="position: relative;">
+      <canvas id="myCanvas" class="border p-3 w-100 rounded-4" style="z-index: 1;"></canvas>
+      <div class="garden-info" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2;">
+        <h2>
+          <% if @date_range_text == 'all time' %>
+            You've planted <%= @filtered_tasks.count %> thriving trees in total.
+          <% elsif @date_range_text == 'today' && @filtered_tasks == 0 %>
+            Today you haven't planted any trees yet, go plant some!
+            <% elsif @date_range_text == 'today' %>
+            Today you have planted <%= @filtered_tasks.count %> trees.
+          <% else %>
+            <%= "This #{@date_range_text} you have planted #{@filtered_tasks.count} trees." %>
+          <% end %>
+        </h2>
+      </div>
     </div>
-  </div>
 </div>
