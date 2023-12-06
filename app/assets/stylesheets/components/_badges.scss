@@ -36,9 +36,16 @@
   color: grey;
 }
 
-.fa-solid.fa-seedling.achieved {
-  color: rgb(60, 220, 32);
+@for $i from 1 through 8 {
+  .fa-seedling.level-#{$i}.achieved {
+    color: nth(($teal-100, $teal-200, $teal-300, $teal-400, $teal-500, $teal-600, $teal-700, $teal-800), $i);
+  }
 }
+
+
+// .fa-solid.fa-seedling.achieved {
+//   color: rgb(60, 220, 32);
+// }
 
 .main-container {
   display: flex;
