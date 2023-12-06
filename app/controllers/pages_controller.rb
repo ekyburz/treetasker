@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
   def archive
     @user = current_user
-    @tasks_by_priority = Task.where(completed: true, deleted: false).order(:priority).group_by(&:priority)
+    @tasks_by_priority = Task.where(completed: true, deleted: false, creator: current_user).order(:priority).group_by(&:priority)
   end
 
   def about; end

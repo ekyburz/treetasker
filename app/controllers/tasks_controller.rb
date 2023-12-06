@@ -4,24 +4,24 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def task_do
-    @tasks = Task.where(priority: 1, completed: false, deleted: false)
+    @tasks = Task.where(priority: 1, completed: false, deleted: false, creator: current_user)
   end
 
   def task_decide
-    @tasks = Task.where(priority: 2, completed: false, deleted: false)
+    @tasks = Task.where(priority: 2, completed: false, deleted: false, creator: current_user)
   end
 
   def task_delegate
-    @tasks = Task.where(priority: 3, completed: false, deleted: false)
+    @tasks = Task.where(priority: 3, completed: false, deleted: false, creator: current_user)
   end
 
   def task_depository
-    @tasks = Task.where(priority: 4, completed: false, deleted: false)
+    @tasks = Task.where(priority: 4, completed: false, deleted: false, creator: current_user)
   end
 
   def index
     # @tasks = Task.all
-    @tasks_by_priority = Task.where(completed: false, deleted: false).order(:priority).group_by(&:priority)
+    @tasks_by_priority = Task.where(completed: false, deleted: false, creator: current_user).order(:priority).group_by(&:priority)
   end
 
   # GET /tasks/1 or /tasks/1.json
