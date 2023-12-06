@@ -13,7 +13,9 @@
     <% if @task.priority == 2 || @task.id.nil? %>
       <%= f.input :deadline, as: :string, input_html: { data: { controller: "datepicker" } } %>
     <% end %>
-    <%= f.input :completed, label: "Completed?" %>
+
+      <%= f.input :completed, label: "Completed?" %>
+
   </div>
 
   <div class="form-actions">
