@@ -1,8 +1,10 @@
-
-<div class="col mb-3 task-edit align-middle">
-  <h2>Editing task</h2>
-  <%= link_to "Show this task", @task, class: "btn btn-outline-success" %>
-  <% link_to "Back to tasks", tasks_path %>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h2>Edit your task</h2>
+    <%= render "form", task: @task %>
+    <br>
+    <div>
+      <%# link_to "Back to tasks", tasks_path %>
+    </div>
+  </div>
 </div>
-
-<%= render "form", task: @task %>

@@ -3,6 +3,8 @@ class Task < ApplicationRecord
   belongs_to :assignee, class_name: 'User'
   has_one :tree
 
+  validates :name, :priority, :deadline, presence: true
+
   after_create :create_tree, :update_user_status
 
   PRIORITIES = {
