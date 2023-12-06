@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="container bg-light rounded-4">
+<div>
   <div class="d-flex justify-content-between align-items-center mb-3 mt-2 mx-1">
     <h2 class="m-0">Filter: <span class="text-danger"><strong>Delegate</strong></span> Tasks</h2>
     <div>
@@ -9,16 +9,11 @@
     </div>
   </div>
 
-  <div class="row bg-light rounded-4">
+  <div>
     <% @tasks.each do |task| %>
-      <div class="col-12 mb-3">
-        <div class="card rounded-4">
-          <div class="card-body">
-            <%= render partial: 'tasks/task', locals: { task: task } %>
-            <p class="mt-2 mb-0">
-              <%= link_to "Details", task, class: "btn btn-success text-decoration-none" %>
-            </p>
-          </div>
+      <div class="col mb-3">
+        <div class="card-body">
+          <%= render partial: 'tasks/task_priority', locals: { task: task } %>
         </div>
       </div>
     <% end %>

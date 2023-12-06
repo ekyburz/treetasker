@@ -1,12 +1,24 @@
 <div class="container-fluid footer p-0">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 px-5 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-      <span class="mb-3 mb-md-0 text-body-secondary">© 2023 TreeTasker, Inc</span>
+    <div class="col-8">
+      <%= image_tag "treetasker-logo-nobg.png", alt: "TreeTasker - Productivity Growth", size: "50x50" %>
+      <small class="d-block mb-3 text-body-secondary">© TreeTasker, GmbH 2023</small>
     </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3"><a class="text-body-secondary" href="https://github.com/ekyburz/treetasker"><i class="fa-brands fa-github"></i></a></li>
-      <li class="ms-3"><a class="text-body-secondary" href="https://twitter.com/treetasker"><i class="fa-brands fa-x-twitter"></i></a></li>
-    </ul>
+    <div class="col-2">
+      <h5>Company</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/about">About</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/team">Team</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/pricing">Pricing</a></li>
+        </ul>
+    </div>
+
+    <div class="col-2">
+      <ul class="nav">
+        <li class="ms-3"><a class="text-body-secondary" href="https://github.com/ekyburz/treetasker"><i class="fa-brands fa-github"></i></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="https://twitter.com/treetasker"><i class="fa-brands fa-x-twitter"></i></a></li>
+      </ul>
+    </div>
   </footer>
 </div>

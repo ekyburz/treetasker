@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :about, :team, :pricing]
 
   def home
     @user = current_user
@@ -20,4 +20,10 @@ class PagesController < ApplicationController
     @user = current_user
     @tasks_by_priority = Task.where(completed: true, deleted: false).order(:priority).group_by(&:priority)
   end
+
+  def about; end
+
+  def team; end
+
+  def pricing; end
 end
