@@ -38,7 +38,7 @@
   </div>
 
   <div class="col-7 status-badges m-0">
-    <% statuses = ['Novice', 'Intermediate', 'Advanced', 'Expert', 'Master', 'Legend', 'God', 'Immortal'] %>
+    <% statuses = ['Green Thumb', 'Sprouts Scouts', 'Floral Engineer', 'Plant Scientist', 'Tree Whisperer', 'Forest Fairy', 'Wildlife Wizard', 'LAndscape Legend'] %>
     <% user_status_index = @user.status ? statuses.map(&:downcase).index(@user.status.downcase) : nil %>
     <% statuses.each_with_index do |status, index| %>
       <div class="badge-container <%= 'unlocked' if user_status_index.present? && (user_status_index >= index) %>">

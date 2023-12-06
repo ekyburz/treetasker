@@ -43,19 +43,19 @@ class Task < ApplicationRecord
     tree_count = creator.trees.count
 
     if tree_count >= 1000
-      assignee.update(status: 'immortal')
+      assignee.update(status: 'Landscape Legend')
     elsif tree_count >= 500
-      assignee.update(status: 'god')
+      assignee.update(status: 'Wildlife Wizard')
     elsif tree_count >= 250
-      assignee.update(status: 'legend')
+      assignee.update(status: 'Forest Fairy')
     elsif tree_count >= 100
-      assignee.update(status: 'master')
+      assignee.update(status: 'Tree Whisperer')
     elsif tree_count >= 50
-      assignee.update(status: 'expert')
+      assignee.update(status: 'Plant Scientist')
     elsif tree_count >= 25
-      assignee.update(status: 'advanced')
+      assignee.update(status: 'Floral Engineer')
     elsif tree_count >= 10
-      assignee.update(status: 'intermediate')
+      assignee.update(status: 'Sprouts Scout')
     end
   end
 end
