@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_153239) do
     t.datetime "updated_at", null: false
     t.boolean "completed"
     t.text "details"
-    t.datetime "deadline", default: "2023-12-06 11:42:06", null: false
+    t.datetime "deadline", default: "2023-12-06 13:48:49", null: false
     t.boolean "deleted", default: false
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
     t.index ["creator_id"], name: "index_tasks_on_creator_id"
@@ -84,7 +84,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_153239) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "status", default: "novice", null: false
+    t.string "status", default: "Green Thumb", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
