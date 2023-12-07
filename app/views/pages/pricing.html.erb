@@ -1,12 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<p class="p-notice" style="color: green"><%= notice %></p>
 
 <div class="col">
   <h2 class="text-center"><strong>Pricing</strong></h2>
 </div>
 
 <div class="container bg-light rounded-4">
-  <p>TreeTasker is a free App!</p>
-  <p>Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+  <p>Select a pricing plan that fits your needs, from basic subscriptions to tiered options. Upgrade to our premium version for exclusive benefits like advanced task analytics, personalized productivity insights, unlimited tree varieties for your virtual garden, and priority access to new features. Elevate your experience and boost productivity with our premium subscription.</p>
   <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
@@ -16,46 +15,46 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
+              <li>Plant and grow virtual trees!</li>
+              <li>Basic Task Management</li>
+              <li>Community Support</li>
+              <li>Access to Help Center</li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+            <%= link_to "Sign up for Free!", new_user_registration_path(), class: "btn btn-outline-success btn-lg w-100 " %>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-success">
+          <div class="card-header py-3 text-bg-success border-success">
+            <h4 class="my-0 fw-normal">Green Enthusiast</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$0.99<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Everything in Free, plus:</li>
+              <li>Advanced Task Analytics</li>
+              <li>Expanded Tree Variety</li>
+              <li>Priority Email Support</li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-success">Comming soon</button>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Pro</h4>
+            <h4 class="my-0 fw-normal">Tree Master</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mo</small></h1>
+            <h1 class="card-title pricing-card-title">$2.99<small class="text-body-secondary fw-light">/mo</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
+              <li>Everything in Green Enthusiast, plus:</li>
+              <li>Personalized Productivity Insights</li>
+              <li>Unlimited Tree Varieties</li>
+              <li>Early Access to New Features</li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+            <button type="button" class="w-100 btn btn-lg btn-outline-success">Comming soon</button>
           </div>
         </div>
       </div>
@@ -67,20 +66,20 @@
           <tr>
             <th style="width: 34%;"></th>
             <th style="width: 22%;">Free</th>
-            <th style="width: 22%;">Pro</th>
-            <th style="width: 22%;">Enterprise</th>
+            <th style="width: 22%;">Green Enthusiast</th>
+            <th style="width: 22%;">Tree Master</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row" class="text-start">Public</th>
+            <th scope="row" class="text-start">plant and grow virtual trees!</th>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
           </tr>
           <tr>
-            <th scope="row" class="text-start">Private</th>
-            <td></td>
+            <th scope="row" class="text-start">Basic task management</th>
+            <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
           </tr>
@@ -88,25 +87,49 @@
 
         <tbody>
           <tr>
-            <th scope="row" class="text-start">Permissions</th>
+            <th scope="row" class="text-start">Community support</th>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
           </tr>
           <tr>
-            <th scope="row" class="text-start">Sharing</th>
+            <th scope="row" class="text-start">Access to help center</th>
+            <td><i class="fa-solid fa-check"></i></td>
+            <td><i class="fa-solid fa-check"></i></td>
+            <td><i class="fa-solid fa-check"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Advanced task analytics</th>
             <td></td>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
           </tr>
           <tr>
-            <th scope="row" class="text-start">Unlimited members</th>
+            <th scope="row" class="text-start">Expanded tree variety</th>
             <td></td>
             <td><i class="fa-solid fa-check"></i></td>
             <td><i class="fa-solid fa-check"></i></td>
           </tr>
           <tr>
-            <th scope="row" class="text-start">Extra security</th>
+            <th scope="row" class="text-start">Priority email support</th>
+            <td></td>
+            <td><i class="fa-solid fa-check"></i></td>
+            <td><i class="fa-solid fa-check"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Personalized Productivity Insights</th>
+            <td></td>
+            <td></td>
+            <td><i class="fa-solid fa-check"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Unlimited Tree Varieties</th>
+            <td></td>
+            <td></td>
+            <td><i class="fa-solid fa-check"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Early Access to New Features</th>
             <td></td>
             <td></td>
             <td><i class="fa-solid fa-check"></i></td>

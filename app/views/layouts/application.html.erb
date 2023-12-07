@@ -10,6 +10,7 @@
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
@@ -45,4 +46,13 @@
     </div>
     <%= render "shared/footer" %>
   </body>
+
+  <script>
+  $(document).ready(function() {
+    // Set a timeout to fade out the alerts after 3 seconds
+    $('.alert').delay(3000).fadeOut(500);
+    $('.flash').delay(3000).fadeOut(500);
+    $('.p-notice').delay(3000).fadeOut(500);
+  });
+</script>
 </html>
