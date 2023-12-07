@@ -7,7 +7,7 @@
 
 <div class="container d-flex bg-light rounded-4 p-3 border border-dark">
   <div class="col-5 user-profile mt-3 mb-4">
-    <div class="profile-picture me-3">
+    <div class="profile-picture">
       <% if @user.photo.key? %>
         <div class="avatar-bordered">
           <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
@@ -23,7 +23,7 @@
       <% end %>
     </div>
 
-    <div class="user-details">
+    <div class="user-details ms-4">
       <div>
         <p class="mb-1">
           <%= @user.first_name %> <%= @user.last_name %>
