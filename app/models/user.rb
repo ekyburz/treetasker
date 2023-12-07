@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   def create_task1
     task_params = {
-      name: 'Add a profile picture',
+      name: 'Add a profile picture 📷',
       priority: 1,
       creator_id: id,
       assignee_id: id,
