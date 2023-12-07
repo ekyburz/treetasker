@@ -79,6 +79,19 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    @task = Task.find(params[:id])
+    @task.toggle!(:completed)
+
+    respond_to do |format|
+      format.js do
+        render turbo_stream: turbo_stream.replace(@task, partial: 'tasks/task', locals: { task: @task })
+        flash.now[:notice] = 'Task completed!'
+      end
+      format.html { redirect_to root_path, notice: 'Task completed!' } # Add this line for non-AJAX request
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
