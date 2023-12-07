@@ -6,5 +6,5 @@
   <li id="<%= dom_id task %>"><%= link_to "#{task.name} assigned to #{task.assignee.first_name} #{task.assignee.last_name}", task %></li>
 <% elsif task.priority == 4 %>
   <% date = ((((((((task.deadline - DateTime.current)*24*60*60)%60)/60)%60)/60)%24)/24).to_i %>
-  <li id="<%= dom_id task %>"><%= link_to "#{task.name}", task %> created <%= "#{date}" %> days ago</li>
+  <li id="<%= dom_id task %>"><%= link_to "#{task.name} created #{date} days ago", task %></li>
 <% end %>
