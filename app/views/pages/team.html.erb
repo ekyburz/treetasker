@@ -1,24 +1,40 @@
 <p class="p-notice" style="color: green"><%= notice %></p>
 
-<div class="d-flex justify-content-between align-items-center">
-  <h2 class="me-3"><strong>Our Team</strong></h2>
-</div>
+<div class="row team">
+  <div>
+    <h2 class="mb-3 text-center">Meet the TreeTasker Team</h2>
+  </div>
 
-<div class="container bg-light rounded-4 border border-dark p-2">
-  <h5 class="mt-3 mx-2 green-text"><strong>Meet the TreeTasker Team</strong></h5>
-  <div class="member m-2">
-    <%= image_tag "etienne-pic.png", class: "avatar border border-success" %>
-    <h4 class="mt-2"><span class="green-text">Etienne</span> <span class="font"> Founder <a href="https://github.com/ekyburz" class="color-github"><i class="fa-brands fa-github"></i></a></span></h4>
-    <%# <p>Some text ...</p> %>
-  </div>
-  <div class="member m-2">
-    <%= image_tag "anhnam-pic2.jpeg", class: "avatar border border-success" %>
-    <h4 class="mt-2"><span class="green-text">Anh Nam</span> <span class="font"> Co-Founder <a href="https://github.com/anlegi" class="color-github"><i class="fa-brands fa-github"></i></a></span></h4>
-    <%# <p>Some text ...</p> %>
-  </div>
-  <div class="member m-2">
-    <%= image_tag "nicolas-pic.jpeg", class: "avatar border border-success" %>
-    <h4 class="mt-2"><span class="green-text">Nicolas</span> <span class="font"> Co-Founder <a href="https://github.com/nicolasmesser" class="color-github"><i class="fa-brands fa-github"></i></a></span></h4>
-    <%# <p>Some text ...</p> %>
+  <div class="container bg-light rounded-4 border border-2 border-dark p-3">
+    <div class="member d-flex mb-3">
+      <div class="pe-3">
+        <%= image_tag "etienne-pic.png", class: "avatar-bordered" %>
+      </div>
+      <div>
+        <h4 class="mt-2"><span class="green-text">Etienne Kyburz</span> <span class="font"> Founder</span></h4>
+        <p>Some text ...</p>
+        <p>Let's connect: <a href="https://github.com/ekyburz" class="color-github"><i class="fa-brands fa-github"></i></a></p>
+      </div>
+    </div>
+    <div class="member d-flex mb-3">
+      <div class="pe-3">
+        <%= image_tag "anhnam-pic2.jpeg", class: "avatar-bordered" %>
+      </div>
+      <div>
+        <h4 class="mt-2"><span class="green-text">Anh Nam Le Giang</span> <span class="font"> Co-Founder</span></h4>
+        <p>Some text ...</p>
+        <p><a href="https://github.com/anlegi" class="color-github"><i class="fa-brands fa-github"></i></a></p>
+      </div>
+    </div>
+    <div class="member d-flex">
+      <div class="pe-3">
+        <%= image_tag "nicolas-pic.jpeg", class: "avatar-bordered" %>
+      </div>
+      <div>
+        <h4 class="mt-2"><span class="green-text">Nicolas Messer</span> <span class="font"> Co-Founder</span></h4>
+        <p>Some text ...</p>
+        <p><a href="https://github.com/nicolasmesser" class="color-github"><i class="fa-brands fa-github"></i></a></p>
+      </div>
+    </div>
   </div>
 </div>
