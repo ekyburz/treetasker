@@ -10,7 +10,7 @@
     <% if @task.priority == 3 || @task.id.nil? %>
       <%= f.input :assignee_id, collection: @assignees, label: "Assignee", value_method: :id, label_method: :email, prompt: "Select an assignee" %>
     <% end %>
-    <% if @task.priority == 2 || @task.id.nil? %>
+    <% if @task.priority == 2 || @task.priority == 3 || @task.id.nil? %>
       <%= f.input :deadline, as: :string, input_html: { data: { controller: "datepicker" } } %>
     <% end %>
 

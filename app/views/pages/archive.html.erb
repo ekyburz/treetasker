@@ -7,6 +7,9 @@
 
 <div class="container">
   <div class="row">
+    <% if @tasks_by_priority.count == 0 %>
+      <p>You have not archived any tasks yet.</p>
+    <% end %>
     <% @tasks_by_priority.each do |priority, tasks| %>
       <% if Task::PRIORITIES[priority] == "Do" %>
         <h3><span class="text-success"><strong><%= Task::PRIORITIES[priority] %></strong></span></h3>

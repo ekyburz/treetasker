@@ -15,21 +15,30 @@
 }
 
 .card-header p {
-font-weight: bold;
 font-style: italic;
-margin: 0;
-float: right;
 }
 
 .card-header-priority p {
   font-weight: normal;
   font-style: italic;
   margin: 0;
-  float: right;
   }
+
+.card-header-info {
+  float: left;
+}
+
+.card-header-action {
+  float: right;
+  font-weight: bold;
+}
 
 a.edit {
   color: $teal-500;
+}
+
+a.complete {
+  color: $blue-500;
 }
 
 a.delete {

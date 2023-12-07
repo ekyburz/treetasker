@@ -10,13 +10,15 @@
     <br><strong>Email:</strong> <%= task.assignee.email %></p>
   </div>
 <% end %>
-<% if task.priority == 2 %>
+<% if task.priority == 3 && task.created_at.strftime('%A, %B %e, %Y') == task.deadline.strftime('%A, %B %e, %Y') %>
+  <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
+<% elsif task.priority == 2 %>
   <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
 <% end %>
 <% if task.completed? %>
   <p><i class="fa-regular fa-square-check fa-xl"></i> Completed!</p>
-<%= button_to 'Mark as incomplete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'tt-link' %>
+  <%= button_to 'Mark as incomplete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'tt-link' %>
 <% else %>
   <p><i class="fa-regular fa-rectangle-xmark fa-xl"></i> Completed?</p>
-<%= button_to 'Complete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'tt-link' %>
+  <%= button_to 'Complete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'tt-link' %>
 <% end %>
