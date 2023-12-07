@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks do
+    member do
+      post 'complete'
+    end
+  end
   resources :gardens, only: [:index]
   resources :trees, only: %i[show new create]
 
