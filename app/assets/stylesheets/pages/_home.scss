@@ -65,6 +65,10 @@ body p, body span {
   text-shadow: 1px 1px #1EDD88;
 }
 
+.home-nav li.profile .avatar-nav {
+  margin: auto;
+}
+
 .home-nav, .home-tasks, .home-stats, .home-tasks .col {
   border: 2px solid $blue-grey-900;
   border-radius: 10px

@@ -2,7 +2,7 @@
   <div class="row justify-content-between">
     <div class="col-9">
       <h2><%= possessive_form(@user.first_name) %> Garden!</h2>
-      <h4>Gardener Status: <strong><%= @user.status %></strong></h4>
+      <h4>Gardener Status: <strong class="status-green"><%= @user.status %></strong></h4>
     </div>
     <div class="col-3 pt-2 pe-0">
       <%= link_to "Home", root_path, class: "btn btn-success float-end" %>
