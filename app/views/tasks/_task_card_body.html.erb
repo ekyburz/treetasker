@@ -16,9 +16,8 @@
   <p><i class="fa-regular fa-calendar-days fa-xl"></i> <strong>Deadline:</strong> <%= task.deadline.strftime('%A, %B %e, %Y at %H:%M') %></p>
 <% end %>
 <% if task.completed? %>
-  <p><i class="fa-regular fa-square-check fa-xl"></i> Completed!</p>
-  <%= button_to 'Mark as incomplete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'tt-link' %>
+  <%= button_to 'Mark as incomplete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'btn btn-success' %>
 <% else %>
-  <p><i class="fa-regular fa-rectangle-xmark fa-xl"></i> Completed?</p>
-  <%= button_to 'Complete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'tt-link' %>
+  <%= button_to 'Complete', complete_task_path(task), method: :complete, remote: true, data: { turbo_method: :complete}, class: 'btn btn-success' %>
 <% end %>
+<%= link_to "Edit this task", edit_task_path(task), class: "btn btn-success" %>
