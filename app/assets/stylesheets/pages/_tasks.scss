@@ -15,10 +15,7 @@
 }
 
 .card-header p {
-font-weight: bold;
 font-style: italic;
-margin: 0;
-float: right;
 }
 
 .card-header-priority p {
@@ -33,6 +30,7 @@ float: right;
 
 .card-header-action {
   float: right;
+  font-weight: bold;
 }
 
 a.edit {

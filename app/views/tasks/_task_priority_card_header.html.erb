@@ -3,7 +3,12 @@
     <% if task.completed %>
       <p>Status: Done</p>
     <% else %>
-      <p>Status: Open – Due on <%= task.deadline.strftime('%a, %b %e, %Y at %H:%M') %></p>
+      <p class="mb-1"><i class="fa-regular fa-lightbulb fa-xl"></i> Status: Open</p>
+      <% if task.priority == 3 && task.created_at.strftime('%A, %B %e, %Y') == task.deadline.strftime('%A, %B %e, %Y') %>
+        <p class="mb-0"><i class="fa-regular fa-calendar-days fa-xl"></i> Due on <%= task.deadline.strftime('%a, %b %e, %Y at %H:%M') %></p>
+      <% elsif task.priority == 2 %>
+        <p class="mb-0"><i class="fa-regular fa-calendar-days fa-xl"></i> Due on <%= task.deadline.strftime('%a, %b %e, %Y at %H:%M') %></p>
+      <% end %>
     <% end %>
   </div>
   <div class="card-header-action">
