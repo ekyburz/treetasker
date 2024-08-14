@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_153239) do
     t.datetime "updated_at", null: false
     t.boolean "completed", default: false
     t.text "details"
-    t.datetime "deadline", default: "2023-12-07 14:19:44", null: false
+    t.datetime "deadline", default: "2024-08-14 12:42:46", null: false
     t.boolean "deleted", default: false
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
     t.index ["creator_id"], name: "index_tasks_on_creator_id"
